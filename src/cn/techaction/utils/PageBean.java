@@ -9,7 +9,6 @@ public class PageBean<T> {
 	private int pageSize;	//每页显示的数据条数
 	private int totalRecord;	//总的记录数
 	
-	
 	private int totalPage;	//总页数
 	private int startIndex; //开始索引
 	

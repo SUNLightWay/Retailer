@@ -3,7 +3,6 @@ package cn.techaction.dao.impl;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.management.Query;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cn.techaction.dao.ActionOrderItemDao;
-import cn.techaction.pojo.ActionOrder;
 import cn.techaction.pojo.ActionOrderItem;
 
 @Repository

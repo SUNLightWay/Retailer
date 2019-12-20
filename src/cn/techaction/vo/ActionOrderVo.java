@@ -3,7 +3,6 @@ package cn.techaction.vo;
 import java.math.BigDecimal;
 import java.util.List;
 
-import cn.techaction.pojo.ActionOrderItem;
 
 public class ActionOrderVo {
 	private long orderNo;

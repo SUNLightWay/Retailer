@@ -1,6 +1,8 @@
 package cn.techaction.pojo;
 
 import java.util.Date;
+import java.util.List;
+
 
 public class ActionParam {
 
@@ -12,6 +14,7 @@ public class ActionParam {
 	private Integer level;
 	private Date created;
 	private Date updated;
+	private List<ActionParam> chlidren;
 	
 	public Integer getId() {
 		return id;
@@ -60,6 +63,12 @@ public class ActionParam {
 	}
 	public void setUpdated(Date updated) {
 		this.updated = updated;
+	}
+	public List<ActionParam> getChlidren() {
+		return chlidren;
+	}
+	public void setChlidren(List<ActionParam> chlidren) {
+		this.chlidren = chlidren;
 	}
 	
 	

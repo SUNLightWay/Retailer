@@ -24,6 +24,7 @@ public interface ActionProductDao {
 	
 	/**
 	 * 根据多个条件查询商品信息
+	 * 
 	 * @param condition
 	 * @return
 	 */
@@ -49,4 +50,25 @@ public interface ActionProductDao {
 	 * @return
 	 */
 	public List<ActionProduct> findProductsByPartsId(Integer partsId);
+	
+	/**
+	 * 查找热门商品
+	 * @param num
+	 * @return
+	 */
+	public List<ActionProduct> findHotProducts(Integer num);
+	
+	/**
+	 * 根据产品类型查询商品信息
+	 * @param typeHntjx
+	 * @return
+	 */
+	public List<ActionProduct> findProductByProductCategory(int categoryId);
+	
+	/**
+	 * 根据商品编号查询商品信息
+	 * @param productId
+	 * @return
+	 */
+	public ActionProduct findProductById(Integer productId);
 }

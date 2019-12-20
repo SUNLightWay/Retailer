@@ -17,6 +17,7 @@ import cn.techaction.pojo.ActionProduct;
 import cn.techaction.service.ActionProductService;
 import cn.techaction.utils.ConstUtil;
 import cn.techaction.utils.PageBean;
+import cn.techaction.vo.ActionProductFloorVo;
 import cn.techaction.vo.ActionProductListVo;
 
 @Service
@@ -139,6 +140,51 @@ public class ActionProductServiceImpl implements ActionProductService {
 			return SverResponse.createRespBySuccessMessage("修改商品状态成功");
 		}
 		return SverResponse.createByErrorMessage("修改商品状态失败");
+	}
+	@Override
+	public SverResponse<List<ActionProduct>> findHotProducts(Integer num) {
+		// TODO Auto-generated method stub
+		//直接查询所需数据即可
+		List<ActionProduct> products = actionProductDao.findHotProducts(num);
+		return SverResponse.createRespBySuccess(products);
+	}
+	@Override
+	public SverResponse<ActionProductFloorVo> findFloorProducts() {
+		// TODO Auto-generated method stub
+		//创建vo对象
+		ActionProductFloorVo vo = new ActionProductFloorVo();
+		//1楼数据
+		List<ActionProduct> products1 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_HNTJX); 
+		vo.setOneFloor(products1);
+		//2楼数据
+		List<ActionProduct> products2 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_JZQZJJX); 
+		vo.setTwoFloor(products2);
+		//3楼数据
+		List<ActionProduct> products3 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_GCQZJJX); 
+		vo.setTwoFloor(products3);
+		//4楼数据
+		List<ActionProduct> products4 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_LMJX); 
+		vo.setTwoFloor(products4);
+		
+		return SverResponse.createRespBySuccess(vo);
+	}
+	@Override
+	public SverResponse<ActionProduct> findProductDetailForPortal(Integer productId) {
+		// TODO Auto-generated method stub
+		//判断产品编号是否为空
+		if(productId == null) {
+			return SverResponse.createByErrorMessage("产品编号不能为空!");
+		}
+		//查询商品详情
+		ActionProduct product = actionProductDao.findProductById(productId);
+		//判断产品是否下架
+		if(product == null) {
+			return SverResponse.createByErrorMessage("产品已经下架!");
+		}
+		if(product.getStatus() == ConstUtil.ProductStatus.STATUS_OFF_SALE) {
+			return SverResponse.createByErrorMessage("产品已经下架!");
+		}
+		return SverResponse.createRespBySuccess(product);
 	}
 
 }

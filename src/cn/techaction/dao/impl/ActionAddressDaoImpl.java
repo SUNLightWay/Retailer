@@ -1,6 +1,5 @@
 package cn.techaction.dao.impl;
 
-import java.awt.Desktop.Action;
 import java.sql.SQLException;
 
 import javax.annotation.Resource;

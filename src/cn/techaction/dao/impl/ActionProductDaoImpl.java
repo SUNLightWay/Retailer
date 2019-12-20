@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ColumnListHandler;
 import org.springframework.stereotype.Repository;
@@ -191,6 +192,57 @@ public class ActionProductDaoImpl implements ActionProductDao {
 			e.printStackTrace();
 			return null;
 		}		
+	}
+
+	@Override
+	public List<ActionProduct> findHotProducts(Integer num) {
+		// TODO Auto-generated method stub
+		String sql = "select " + this.str + " from action_products where is_hot = 1 and status = 2 order by updated, id desc";
+		if(num != null) {
+			sql += " limit 0, ?";
+		}
+		if(num != null) {
+			try {
+				return queryRunner.query(sql, new BeanListHandler<ActionProduct>(ActionProduct.class), num);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				return queryRunner.query(sql, new BeanListHandler<ActionProduct>(ActionProduct.class));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public List<ActionProduct> findProductByProductCategory(int categoryId) {
+		// TODO Auto-generated method stub
+		String sql = "select " + this.str + " from action_products where product_id = ? and status = 2 order by updated desc";
+		try {
+			return queryRunner.query(sql, new BeanListHandler<ActionProduct>(ActionProduct.class), categoryId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public ActionProduct findProductById(Integer productId) {
+		// TODO Auto-generated method stub
+		String sql = "select " + this.str + " from action_products where id = ? ";
+		try {
+			return queryRunner.query(sql, new BeanHandler<ActionProduct>(ActionProduct.class), productId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import cn.techaction.common.SverResponse;
 import cn.techaction.pojo.ActionProduct;
 import cn.techaction.utils.PageBean;
+import cn.techaction.vo.ActionProductFloorVo;
 import cn.techaction.vo.ActionProductListVo;
 
 public interface ActionProductService {
@@ -41,5 +42,27 @@ public interface ActionProductService {
 	 * @param hot
 	 * @return
 	 */
-	public SverResponse<String> updateStatus(Integer id, Integer status, Integer hot); 
+	public SverResponse<String> updateStatus(Integer id, Integer status, Integer hot);
+
+
+	/**
+	 * 查找热门商品
+	 * @param num 查找数量
+	 * @return
+	 */
+	public SverResponse<List<ActionProduct>> findHotProducts(Integer num);
+
+
+	/**
+	 * 门户：获得首页所有楼层数据
+	 * @return
+	 */
+	public SverResponse<ActionProductFloorVo> findFloorProducts();
+
+	/**
+	 * 门户：根据商品编号获取商品详情
+	 * @param productId
+	 * @return
+	 */
+	public SverResponse<ActionProduct> findProductDetailForPortal(Integer productId); 
 }

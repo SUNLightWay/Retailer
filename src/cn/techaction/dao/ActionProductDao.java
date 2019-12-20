@@ -59,16 +59,38 @@ public interface ActionProductDao {
 	public List<ActionProduct> findHotProducts(Integer num);
 	
 	/**
-	 * 根据产品类型查询商品信息
-	 * @param typeHntjx
-	 * @return
-	 */
-	public List<ActionProduct> findProductByProductCategory(int categoryId);
-	
-	/**
 	 * 根据商品编号查询商品信息
 	 * @param productId
 	 * @return
 	 */
 	public ActionProduct findProductById(Integer productId);
+
+	/**
+	 * 根据产品类型查询商品信息
+	 * @param typeHntjx
+	 * @return
+	 */
+	public List<ActionProduct> findProductsByProductCategory(Integer categoryId);
+
+	/**
+	 * 根据条件查询总记录数
+	 * @param product
+	 * @return
+	 */
+	public Integer getTotalCount(ActionProduct product);
+	/**
+	 * 根据条件分页查询
+	 * @param product
+	 * @param startIndex
+	 * @param pageSize
+	 * @return
+	 */
+	public List<ActionProduct> findProducts(ActionProduct product, int startIndex, int pageSize);
+
+	/**
+	 * 删除某个用户购物车中所有商品
+	 * @param uid
+	 */
+	public int deleteCartProduct(Integer uid);
+
 }

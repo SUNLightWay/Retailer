@@ -22,6 +22,9 @@ public class ActionParamsServiceImpl implements ActionParamsService{
 	private ActionParamsDao actionParamsDao;
 	@Autowired
 	private ActionProductDao actionProductDao;
+	@Autowired
+	private ActionParamsDao aParamDao;
+	
 	@Override
 	public SverResponse<String> addParam(ActionParam actionParam) {
 		// TODO Auto-generated method stub
@@ -106,6 +109,25 @@ public class ActionParamsServiceImpl implements ActionParamsService{
 		//调用dao层的方法
 		List<ActionParam> params=actionParamsDao.findParamsByParentId(id);
 		return SverResponse.createRespBySuccess(params);
+	}
+	@Override
+	public SverResponse<List<ActionParam>> findAllParams() {
+		//查找一级子节点
+		List<ActionParam> paramList = aParamDao.findParamsByParentId(0);
+		//递归查询所有子节点
+		for(ActionParam param : paramList) {
+			findDirectChildren(param);
+		}
+		return SverResponse.createRespBySuccess(paramList);
+	}
+	//递归查找
+	private void findDirectChildren(ActionParam parentParam) {
+		//查找子节点
+		List<ActionParam> paramList = aParamDao.findParamsByParentId(parentParam.getId());
+		parentParam.setChildren(paramList);
+		for(ActionParam p:paramList) {
+			findDirectChildren(p);
+		}
 	}
 
 }

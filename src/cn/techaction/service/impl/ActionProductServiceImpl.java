@@ -26,6 +26,10 @@ public class ActionProductServiceImpl implements ActionProductService {
 	private ActionProductDao actionProductDao;
 	@Autowired
 	private ActionParamsDao actionParamsDao;
+	@Autowired
+	private ActionProductDao aProductDao;
+	@Autowired
+	private ActionParamsDao aParamsDao;
 	
 	@Override
 	public SverResponse<PageBean<ActionProduct>> findProduct(Integer productId, Integer partsId, Integer pageNum,
@@ -154,37 +158,69 @@ public class ActionProductServiceImpl implements ActionProductService {
 		//创建vo对象
 		ActionProductFloorVo vo = new ActionProductFloorVo();
 		//1楼数据
-		List<ActionProduct> products1 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_HNTJX); 
+		List<ActionProduct> products1 = actionProductDao.findProductsByProductCategory(ConstUtil.ProductType.TYPE_HNTJX); 
 		vo.setOneFloor(products1);
 		//2楼数据
-		List<ActionProduct> products2 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_JZQZJJX); 
+		List<ActionProduct> products2 = actionProductDao.findProductsByProductCategory(ConstUtil.ProductType.TYPE_JZQZJJX); 
 		vo.setTwoFloor(products2);
 		//3楼数据
-		List<ActionProduct> products3 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_GCQZJJX); 
+		List<ActionProduct> products3 = actionProductDao.findProductsByProductCategory(ConstUtil.ProductType.TYPE_GCQZJJX); 
 		vo.setTwoFloor(products3);
 		//4楼数据
-		List<ActionProduct> products4 = actionProductDao.findProductByProductCategory(ConstUtil.ProductType.TYPE_LMJX); 
+		List<ActionProduct> products4 = actionProductDao.findProductsByProductCategory(ConstUtil.ProductType.TYPE_LMJX); 
 		vo.setTwoFloor(products4);
 		
 		return SverResponse.createRespBySuccess(vo);
 	}
 	@Override
 	public SverResponse<ActionProduct> findProductDetailForPortal(Integer productId) {
-		// TODO Auto-generated method stub
 		//判断产品编号是否为空
-		if(productId == null) {
-			return SverResponse.createByErrorMessage("产品编号不能为空!");
+		if(productId ==null) {
+			return SverResponse.createByErrorMessage("产品编号不能为空");
 		}
 		//查询商品详情
-		ActionProduct product = actionProductDao.findProductById(productId);
+		ActionProduct product = aProductDao.findProductById(productId);
 		//判断产品是否下架
-		if(product == null) {
-			return SverResponse.createByErrorMessage("产品已经下架!");
+		if(product==null) {
+			return SverResponse.createByErrorMessage("产品已经下架！");
 		}
-		if(product.getStatus() == ConstUtil.ProductStatus.STATUS_OFF_SALE) {
-			return SverResponse.createByErrorMessage("产品已经下架!");
+		if(product.getStatus()==ConstUtil.ProductStatus.STATUS_OFF_SALE) {
+			return SverResponse.createByErrorMessage("产品已经下架！");
 		}
 		return SverResponse.createRespBySuccess(product);
 	}
 
+	@Override
+	public SverResponse<PageBean<ActionProductListVo>> findProductsForProtal(Integer productTypeId, Integer partsId,
+			String name, int pageNum, int pageSize) {
+		//创建对象
+		ActionProduct product = new ActionProduct();
+		int totalRecord = 0;
+		//判断name是否为空
+		if(name !=null && !name.equals("")) {
+			product.setName(name);
+		}
+		if(productTypeId!=0) {
+			product.setProductId(productTypeId);
+		}
+		if(partsId!=0) {
+			product.setPartsId(partsId);;
+		}
+		//前端显示商品都为在售
+		product.setStatus(2);
+		//查找符合条件的总记录数
+		totalRecord = aProductDao.getTotalCount(product);
+		//创建分页对象
+		PageBean<ActionProductListVo> pageBean = new PageBean<>(pageNum, pageSize, totalRecord);
+		//读取数据 
+		List<ActionProduct> products = aProductDao.findProducts(product,pageBean.getStartIndex(),pageSize);
+		//封装vo
+		List<ActionProductListVo> voList = Lists.newArrayList();
+		for(ActionProduct p:products) {
+			voList.add(createProductListVo(p));
+		}
+		pageBean.setData(voList);
+		return SverResponse.createRespBySuccess(pageBean);
+	}
+	
 }

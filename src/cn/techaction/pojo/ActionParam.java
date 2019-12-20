@@ -14,7 +14,7 @@ public class ActionParam {
 	private Integer level;
 	private Date created;
 	private Date updated;
-	private List<ActionParam> chlidren;
+	private List<ActionParam> children;
 	
 	public Integer getId() {
 		return id;
@@ -64,11 +64,11 @@ public class ActionParam {
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}
-	public List<ActionParam> getChlidren() {
-		return chlidren;
+	public List<ActionParam> getChildren() {
+		return children;
 	}
-	public void setChlidren(List<ActionParam> chlidren) {
-		this.chlidren = chlidren;
+	public void setChildren(List<ActionParam> chlidren) {
+		this.children = chlidren;
 	}
 	
 	

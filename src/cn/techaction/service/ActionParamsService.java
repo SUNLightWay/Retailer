@@ -30,4 +30,9 @@ public interface ActionParamsService {
 	 * @return
 	 */
 	public SverResponse<List<ActionParam>> findParamChildren(Integer id);
+	/**
+	 * 获取全部分类信息
+	 * @return
+	 */
+	public SverResponse<List<ActionParam>> findAllParams();
 }

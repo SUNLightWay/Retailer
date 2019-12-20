@@ -27,22 +27,22 @@ public class ActionOrderItem {
 	public void setUid(Integer uid) {
 		this.uid = uid;
 	}
-	public long getOrder_no() {
+	public long getOrderNo() {
 		return order_no;
 	}
-	public void setOrder_no(long order_no) {
+	public void setOrderNo(long order_no) {
 		this.order_no = order_no;
 	}
-	public int getGoods_id() {
+	public int getGoodsId() {
 		return goods_id;
 	}
-	public void setGoods_id(int goods_id) {
+	public void setGoodsId(int goods_id) {
 		this.goods_id = goods_id;
 	}
-	public String getGoods_name() {
+	public String getGoodsName() {
 		return goods_name;
 	}
-	public void setGoods_name(String goods_name) {
+	public void setGoodsName(String goods_name) {
 		this.goods_name = goods_name;
 	}
 	public BigDecimal getPrice() {
@@ -57,10 +57,10 @@ public class ActionOrderItem {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public BigDecimal getTotal_price() {
+	public BigDecimal getTotalPrice() {
 		return total_price;
 	}
-	public void setTotal_price(BigDecimal total_price) {
+	public void setTotalPrice(BigDecimal total_price) {
 		this.total_price = total_price;
 	}
 	public Date getUpdated() {
@@ -75,10 +75,10 @@ public class ActionOrderItem {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-	public String getIcon_url() {
+	public String getIconUrl() {
 		return icon_url;
 	}
-	public void setIcon_url(String icon_url) {
+	public void setIconUrl(String icon_url) {
 		this.icon_url = icon_url;
 	}
 	

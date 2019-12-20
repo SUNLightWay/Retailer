@@ -37,5 +37,46 @@ public interface ActionUserDao {
 	 * @return
 	 */
 	public int updateUserInfo(User user);
+	
+	/**
+	 * 验证电子邮箱是否已经被注册
+	 * @param email
+	 * @return
+	 */
+	public int checkUserByEmail(String email);
+	/**
+	 * 验证手机是否已经被注册
+	 * @param phone
+	 * @return
+	 */
+	public int checkUserByPhone(String phone);
+	/**
+	 * 新增用户
+	 * @param user
+	 * @return
+	 */
+	public int insertUser(User user);
+	/**
+	 * 根据用户名查找用户
+	 * @param account
+	 * @return
+	 */
+	public User findUserByAccount(String account);
+	/**
+	 * 检查用户面问题的答案
+	 * @param account
+	 * @param question
+	 * @param asw
+	 * @return
+	 */
+	public int checkUserAnswer(String account, String question, String asw);
+
+	/**
+	 * 验证用户密码是否已经存在
+	 * @param account
+	 * @param oldPassword
+	 * @return
+	 */
+	public int checkPassword(String account, String password);
 }
 

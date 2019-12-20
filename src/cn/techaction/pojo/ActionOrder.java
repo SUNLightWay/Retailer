@@ -56,28 +56,28 @@ public class ActionOrder {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public Date getPayment_time() {
+	public Date getPaymentTime() {
 		return payment_time;
 	}
-	public void setPayment_time(Date payment_time) {
+	public void setPaymentTime(Date payment_time) {
 		this.payment_time = payment_time;
 	}
-	public Date getDelivery_time() {
+	public Date getDeliveryTime() {
 		return delivery_time;
 	}
-	public void setDelivery_time(Date delivery_time) {
+	public void setDeliveryTime(Date delivery_time) {
 		this.delivery_time = delivery_time;
 	}
-	public Date getFinish_time() {
+	public Date getFinishTime() {
 		return finish_time;
 	}
-	public void setFinish_time(Date finish_time) {
+	public void setFinishTime(Date finish_time) {
 		this.finish_time = finish_time;
 	}
-	public Date getClose_time() {
+	public Date getCloseTime() {
 		return close_time;
 	}
-	public void setClose_time(Date close_time) {
+	public void setCloseTime(Date close_time) {
 		this.close_time = close_time;
 	}
 	public Date getUpdated() {
@@ -92,16 +92,16 @@ public class ActionOrder {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-	public Long getOrder_no() {
+	public Long getOrderNo() {
 		return order_no;
 	}
-	public void setOrder_no(Long order_no) {
+	public void setOrderNo(Long order_no) {
 		this.order_no = order_no;
 	}
-	public Integer getAddr_id() {
+	public Integer getAddrId() {
 		return addr_id;
 	}
-	public void setAddr_id(Integer addr_id) {
+	public void setAddrId(Integer addr_id) {
 		this.addr_id = addr_id;
 	}
 	

@@ -11,4 +11,10 @@ public interface ActionOrderItemDao {
 	 * @return
 	 */
 	public List<ActionOrderItem> getItemsByOrderNo(Long orderNo);
+
+	/**
+	 * 批量插入订单项
+	 * @param orderItems
+	 */
+	public int[] batchInsert(List<ActionOrderItem> orderItems);
 }

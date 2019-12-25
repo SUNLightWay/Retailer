@@ -38,6 +38,7 @@ public class ActionUserBackController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public SverResponse<User> doLogin(String account, String password, HttpSession session) {
+		System.out.println(account + " " + password);
 		SverResponse<User> response = userService.doLogin(account, password);
 		if (response.isSuccess()) {
 			User user = response.getData();
@@ -51,6 +52,25 @@ public class ActionUserBackController {
 		}
 		return response;
 	}
+	
+	@RequestMapping("/finduserinfo.do")
+	@ResponseBody
+	public SverResponse<User> findUserInfo(HttpSession session){
+		User user=(User)session.getAttribute(ConstUtil.CUR_USER);
+		if(user==null) {
+			return SverResponse.createByErrorCodeMessage(ResponseCode.UNLOGIN.getCode(), "请登录后再进行操作！");
+		}
+		//2.用户是否是管理员
+		SverResponse<String> response=userService.isAdmin(user);
+		System.out.println(response.isSuccess());
+		if(response.isSuccess()) {
+			//3.调用Service中的方法获得所有的用户信息
+			return userService.findUserByAccount(user.getAccount());
+		}	
+		return SverResponse.createByErrorMessage("您无操作权限！");	
+	}
+	
+	
 	@RequestMapping("/finduserlist.do")
 	@ResponseBody
 	public SverResponse<List<ActionUserVo>> getUserDetail(HttpSession session) {
@@ -61,6 +81,7 @@ public class ActionUserBackController {
 		}
 		//2.用户是否是管理员
 		SverResponse<String> response=userService.isAdmin(user);
+		System.out.println(response.isSuccess());
 		if(response.isSuccess()) {
 			//3.调用Service中的方法获得所有的用户信息
 			return userService.findUserList();
@@ -132,5 +153,22 @@ public class ActionUserBackController {
 			return userService.delUser(id);
 		}	
 		return SverResponse.createByErrorMessage("您无操作权限！");
+	}
+	
+	
+	/**
+	 * 登出
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/logout.do")
+	@ResponseBody
+	public SverResponse<String> logout(HttpSession session){
+		User user = (User)session.getAttribute(ConstUtil.CUR_USER);
+		if(user != null) {
+			session.removeAttribute(ConstUtil.CUR_USER);
+			return SverResponse.createRespBySuccess("登出成功");
+		}
+		return SverResponse.createByErrorMessage("请先登录");
 	}
 }

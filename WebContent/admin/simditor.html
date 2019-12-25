@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+.simditor {
+	position: relative;
+	border: 1px solid #c9d8db;
+}
+.simditor .simditor-wrapper {
+	position: relative;
+	background: #fff;
+}
+.simditor .simditor-popover {
+	display: none;
+	padding: 5px 8px 0;
+	background: #fff;
+	box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+	border-radius: 2px;
+	position: absolute;
+	z-index: 2;
+}
+.simditor .simditor-popover .settings-field {
+	margin: 0 0 5px;
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+}
+.simditor .simditor-popover .settings-field label {
+	display: inline-block;
+	margin: 0 5px 0 0;
+}
+.simditor .simditor-popover .settings-field input[type=text] {
+	display: inline-block;
+	width: 200px;
+	box-sizing: border-box;
+	font-size: 12px;
+}
+.simditor .simditor-popover .settings-field input[type=text].image-size {
+	width: 83px;
+}
+.simditor .simditor-popover .settings-field .times {
+	display: inline-block;
+	width: 26px;
+	font-size: 12px;
+	text-align: center;
+}
+.simditor .simditor-popover.link-popover .btn-unlink, .simditor .simditor-popover.image-popover .btn-upload, .simditor .simditor-popover.image-popover .btn-restore {
+	display: inline-block;
+	margin: 0 0 0 5px;
+	color: #333;
+	font-size: 14px;
+	outline: 0;
+}
+.simditor-icon {
+	display: inline-block;
+	font: normal normal normal 14px/1 'Simditor';
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0px, 0px);
+}
+.simditor .simditor-popover.link-popover .btn-unlink span, .simditor .simditor-popover.image-popover .btn-upload span, .simditor .simditor-popover.image-popover .btn-restore span {
+	opacity: 0.6;
+}
+.simditor .simditor-toolbar {
+	border-bottom: 1px solid #eee;
+	background: #fff;
+	width: 100%;
+}
+.simditor .simditor-wrapper .simditor-placeholder {
+	display: none;
+	position: absolute;
+	left: 0px;
+	z-index: 0;
+	padding: 22px 15px;
+	font-size: 16px;
+	font-family: arial,sans-serif;
+	line-height: 1.5;
+	color: #999;
+	background: 0 0;
+}
+.simditor .simditor-body {
+	padding: 22px 15px 40px;
+	min-height: 300px;
+	outline: 0;
+	cursor: text;
+	position: relative;
+	z-index: 1;
+	background: 0 0;
+}
+.simditor .simditor-body, .editor-style {
+	font-size: 16px;
+	font-family: arial,sans-serif;
+	line-height: 1.6;
+	color: #333;
+	outline: 0;
+	word-wrap: break-word;
+}
+.simditor .simditor-wrapper > textarea {
+	display: none !important;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: monaco;
+	font-size: 16px;
+	line-height: 1.6;
+	border: 0;
+	padding: 22px 15px 40px;
+	min-height: 300px;
+	outline: 0;
+	background: 0 0;
+	resize: none;
+}
+.simditor .simditor-body p, .simditor .simditor-body div, .editor-style p, .editor-style div {
+	word-wrap: break-word;
+	margin: 0 0 15px;
+	color: #333;
+	word-wrap: break-word;
+}
+.simditor .simditor-body > :first-child, .editor-style > :first-child {
+	margin-top: 0px !important;
+}
+.simditor .simditor-toolbar > ul {
+	margin: 0;
+	padding: 0 0 0 6px;
+	list-style: none;
+}
+.simditor .simditor-toolbar > ul > li {
+	position: relative;
+	display: inline-block;
+	font-size: 0px;
+}
+.simditor .simditor-toolbar > ul > li > .toolbar-item {
+	display: inline-block;
+	width: 46px;
+	height: 40px;
+	outline: 0;
+	color: #333;
+	font-size: 15px;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+}
+.simditor .simditor-toolbar > ul > li > .toolbar-item span {
+	opacity: 0.6;
+}
+.simditor .simditor-toolbar > ul > li > .toolbar-item span.simditor-icon {
+	display: inline;
+	line-height: normal;
+}
+.simditor .simditor-toolbar > ul > li > span.separator {
+	display: inline-block;
+	background: #cfcfcf;
+	width: 1px;
+	height: 18px;
+	margin: 11px 15px;
+	vertical-align: middle;
+}
+.simditor .simditor-toolbar > ul > li > .toolbar-item.toolbar-item-image {
+	position: relative;
+	overflow: hidden;
+}
+</style>
+</head>
+<body><div class="simditor">
+  <div class="simditor-wrapper"><div class="simditor-toolbar" style="left: 9px; top: 0px; width: 727px;"><ul><li><a tabindex="-1" title="加粗文字 ( Ctrl + b )" class="toolbar-item toolbar-item-bold" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-bold"></span></a></li><li><a tabindex="-1" title="斜体文字 ( Ctrl + i )" class="toolbar-item toolbar-item-italic" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-italic"></span></a></li><li><a tabindex="-1" title="下划线文字 ( Ctrl + u )" class="toolbar-item toolbar-item-underline" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-underline"></span></a></li><li><a tabindex="-1" title="删除线文字" class="toolbar-item toolbar-item-strikethrough" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-strikethrough"></span></a></li><li><span class="separator"></span></li><li><a tabindex="-1" title="有序列表 ( ctrl + / )" class="toolbar-item toolbar-item-ol" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-list-ol"></span></a></li><li><a tabindex="-1" title="无序列表 ( Ctrl + . )" class="toolbar-item toolbar-item-ul" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-list-ul"></span></a></li><li><a tabindex="-1" title="引用" class="toolbar-item toolbar-item-blockquote" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-quote-left"></span></a></li><li><a tabindex="-1" title="插入代码" class="toolbar-item toolbar-item-code" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-code"></span></a></li><li><span class="separator"></span></li><li><a tabindex="-1" title="插入链接" class="toolbar-item toolbar-item-link" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-link"></span></a></li><li><a tabindex="-1" title="插入图片" class="toolbar-item toolbar-item-image" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-picture-o"></span></a></li><li><span class="separator"></span></li><li><a tabindex="-1" title="向右缩进 (Tab)" class="toolbar-item toolbar-item-indent" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-indent"></span></a></li><li><a tabindex="-1" title="向左缩进 (Shift + Tab)" class="toolbar-item toolbar-item-outdent" href="javascript:;" unselectable="on"><span class="simditor-icon simditor-icon-outdent"></span></a></li></ul></div>
+    <div class="simditor-placeholder" style="top: 41px; display: block;">Balabala</div>
+    <div class="simditor-body" contenteditable="true"><p><br></p></div>
+  <textarea id="editor" autofocus="" placeholder="Balabala"></textarea></div>
+<div class="simditor-popover code-popover"><div class="code-settings">
+  <div class="settings-field">
+    <select class="select-lang">
+      <option value="-1">选择程序语言</option>
+    <option value="bash">Bash</option><option value="c++">C++</option><option value="cs">C#</option><option value="css">CSS</option><option value="erlang">Erlang</option><option value="less">Less</option><option value="sass">Sass</option><option value="diff">Diff</option><option value="coffeescript">CoffeeScript</option><option value="html">HTML,XML</option><option value="json">JSON</option><option value="java">Java</option><option value="js">JavaScript</option><option value="markdown">Markdown</option><option value="oc">Objective C</option><option value="php">PHP</option><option value="parl">Perl</option><option value="python">Python</option><option value="ruby">Ruby</option><option value="sql">SQL</option></select>
+  </div>
+</div></div><div class="simditor-popover link-popover"><div class="link-settings">
+  <div class="settings-field">
+    <label>链接文字</label>
+    <input class="link-text" type="text">
+    <a tabindex="-1" title="移除链接" class="btn-unlink" href="javascript:;">
+      <span class="simditor-icon simditor-icon-unlink"></span>
+    </a>
+  </div>
+  <div class="settings-field">
+    <label>链接地址</label>
+    <input class="link-url" type="text">
+  </div>
+  <div class="settings-field">
+    <label>打开方式</label>
+    <select class="link-target">
+      <option value="_blank">在当前窗口中打开 (_blank)</option>
+      <option value="_self">在新窗口中打开 (_self)</option>
+    </select>
+  </div>
+</div></div><div class="simditor-popover image-popover"><div class="link-settings">
+  <div class="settings-field">
+    <label>图片地址</label>
+    <input tabindex="1" class="image-src" type="text">
+    
+  </div>
+  <div class="settings-field">
+    <label>图片描述</label>
+    <input tabindex="1" class="image-alt" id="image-alt" type="text">
+  </div>
+  <div class="settings-field">
+    <label>图片尺寸</label>
+    <input tabindex="2" class="image-size" id="image-width" type="text">
+    <span class="times">×</span>
+    <input tabindex="3" class="image-size" id="image-height" type="text">
+    <a tabindex="-1" title="还原图片尺寸" class="btn-restore" href="javascript:;">
+      <span class="simditor-icon simditor-icon-undo"></span>
+    </a>
+  </div>
+</div></div></div></body>
+</html>

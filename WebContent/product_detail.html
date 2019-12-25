@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>配件商城</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/product_detail.css">
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+	<script src="js/require.js" type="text/javascript" data-main="js/product_detail_main.js" defer async="true"></script>
+</head>
+<body>
+	<!--头部导航开始-->
+	<header class="header_outbox">
+		<div class="header_inbox">
+			<div class="loginbox">
+				<p> 欢迎访问艾氪森配件商城</p>
+				<a href="#" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 访问官网 ]</a>
+				<span id="register-info">
+					<a href="#" class="login">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;</a>
+					<img src="images/common/header_line.jpg">
+					<a href="#" class="login">&nbsp;&nbsp;免费注册&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				</span>
+				<span id="login-info" style="display: none;">
+					<a href="#" id="headerUsername" class="login"></a>
+					<img src="images/common/header_line.jpg">
+					<a href="#" id="headerLogout" class="login">&nbsp;&nbsp;退出</a>
+				</span>
+			</div>
+			<ul class="my_action fix">
+				<li>
+					<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的关注</a>
+				</li>
+				<li>
+					<img src="images/common//mix_car.png">
+					<a href="#">购物车<span id="cartQuantity">[0]</span></a>
+				</li>
+				<li>
+					<a href="#">我的商城</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<!--头部导航结束-->
+	<!--Logo和头部搜索开始-->
+	<div class="action_search_box wrapper_box">
+		<a class="logo" href="#"></a>
+		<div class="inputbox">
+			<input type="text" id="keyword" name="keyword" value="闸板泵" placeholder="请输入您感兴趣的内容">
+			<a class="searchbtn" href="javascript:search();">搜&nbsp;索</a>
+			<div class="hotword">热销：
+				<a href="#" target="_blank">&nbsp;&nbsp;&nbsp;闸板泵&nbsp;&nbsp;&nbsp;</a>
+			</div>
+		</div>
+		<img class="telephonenumber" src="images/common/telephone_number.jpg">
+	</div>
+	<!--Logo和头部搜索结束-->
+	<hr style="margin-top: 30px; margin-bottom: 30px;border-top: 1px solid #DDD;">
+	<!--头部主导航结束-->
+	<!--正文--->
+	<div class="content_box pr">
+		<!--商品详情开始-->
+		<div class="product_detail content_box clearfix">
+			<!--左侧内容-->
+			<div class="product_detail_main l">
+				<!--商品图片-->
+				<div class="product_picture_list l">
+					<div class="product_picture">
+						<img class="product_picture_img" id="productMainImage" src="images/details/big_pic.jpg"alt="">
+					</div>	
+					<div class="product_picture_table clearfix">
+						<div class="product_picture_table_left l">
+							<img src="images/common/left_arrow.jpg">	
+						</div>
+						<div class="product_picture_table_main_container l">
+							<div class="product_picture_table_main">
+								<ul id="piclist_container">
+									
+								</ul>
+							</div>
+						</div>
+						<span>
+							<img src="images/common/right_arrow.jpg">
+						</span>
+					</div>		
+				</div>
+				<!--商品图片结束-->
+				<!--商品信息开始-->
+				<div class="product_info_list l">
+					<!--商品标题-->
+					<div>
+						<h3 class="l" id="product_name_container" title="中联重科液压油200L">中联重科液压油200L</h3>
+						<div class="product_attention l">
+							<a href="javascript:void(0):" id="store_btn">
+								<span>关注</span>
+							</a>
+						</div>
+					</div>
+					<!--商品价格-->
+					<div class="product_price_info">
+						<span>现价：</span>
+						<span id="productPriceContainer" dat="2828">￥2828.00</span>
+						<div> 
+							<span>促销：</span>
+							<a href="#">促销九折，5桶起</a>
+						</div>
+					</div>
+					<!--商品发货-->
+					<div class="product_delivery">
+						<span>发货地:</span>
+						<span>北京市</span>&nbsp;&nbsp;
+						<span>配送方式：</span>
+						<input type="radio" name="send_type" checked="checked" style="margin-right: auto;">
+						<label>到付</label>
+						<input type="radio" name="send_type" style="margin-right: auto;">
+						<label>在线支付</label>&nbsp;&nbsp;
+						<span id="freight"></span>
+						<br>
+						<span>配送至</span>
+						<span>
+							<select id="provience" class="area" style="width: 100px;">
+								<option value="">请选择</option>
+								<option value="1">北京市</option>
+							</select>
+							<select id="city" class="area" style="width: 100px;">
+								<option value="">请选择</option>
+								<option value="1">朝阳区</option>
+							</select>
+							<select id="distinct" class="area" style="width: 100px;">
+								<option value="">请选择</option>
+								<option value="1">人民路</option>
+							</select>
+							<input type="hidden" name="areaId" value="1405">
+						</span>
+					</div>
+					<!--商品购买相关-->
+					<div class="product_select">
+						<div><span class="l">数量：</span>
+							<div class="l">
+								<a href="javascript:void(0);" class="product_minus_2 l"></a>
+								<input  name="" id="product_num" type="text" value="1" maxlength="8" class="l" autocomplete="off">
+								<a href="javascript:void(0);" class="product_plus_1 l"></a>
+							</div>
+							
+							<p id="stock_container" class="l">库存:</p>
+						</div>
+						<p class="l" style="padding-top: 15px;">购买方式：</p>
+						<input type="hidden" id="buyType" name="buyType" value="1-1">
+						<div>
+							<a href="javascript void(0);" dat="2828" type="1-1" data-price="￥2828.00">全额支付</a>
+							<img src="images/common/selected.png">
+						</div>
+					</div> 
+					<!--立即购买-->
+					<div class="product_buy">
+						<div><a id="buy">立刻购买</a></div>
+						<div><a id="addCart">加入购物车</a></div>
+					</div>
+					<!--服务承诺-->
+					<div class="pledges">
+						<div class="l" style="margin-right: 10px;">服务承诺</div>
+						<div class="l">
+							<div class="l" style="margin-right: 10px;">
+								<img src="images/common/pledges_01.jpg">
+							</div>
+							<div class="l" style="margin-right: 10px;">
+								<img src="images/common/pledges_02.jpg">
+							</div>
+							<div class="l" style="margin-right: 10px;">
+								<img src="images/common/pledges_03.jpg">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--商品信息结束-->
+				<!--推荐套装-->
+				<div class="recommended_package l">
+					<h3>推荐套装</h3>
+					<div>
+						<div class="l">
+							<div><img src="images/details/tj_left.jpg"></div>
+							<div><span>中联重科液压油...</span></div>
+							<div><input type="checkbox" id="quanxuan">￥688.00</div>
+						</div>
+						<div class="l"></div>
+						<div class="l">
+							<div><img src="images/details/tj_left_02.jpg"></div>
+							<div><span>发动机专用机油</span></div>
+							<div><input type="checkbox" id="quanxuan">￥328.00</div>
+						</div>
+						<div class="recommended_package_price r">
+							<div class="recommended_package_price_info">
+								<span class="recommended_package_price_text">共计：</span>
+								<span class="recommended_package_price_num">
+									<span class="total_price" dat="3156">￥3156.00</span>
+								</span>
+							</div>
+							<a href="javascript:void(0);">
+								<div class="recommended_package_buy">
+									<div class="recommended_package_buy_btn">立刻购买</div>
+								</div>
+							</a>
+						</div>
+						<div class="recommended_package_equal_sign r"></div>
+					</div>
+				</div>
+				<!--推荐套装结束-->
+			</div>
+			<!--左侧内容结束-->
+		</div>
+		<!--侧边相关配件-->
+			<div class="product_related_box l" style="margin-left: 950px; position: absolute; margin-top: 200px;"> 
+				<div><a>相关配件</a></div>
+				<div>
+					<div>
+						<div>
+							<a href="#" title="中联重科液压油18L"></a>
+							<img src="images/details/rel_left_01.jpg">
+						</div>
+						<div>
+							<div>
+								<a href="中联重科液压油18L">中联重科液压油18L</a>
+							</div>
+							<div class="product_related_price">
+								<span>￥279.00</span>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<a href="#" title="锂基脂 ZL-2"></a>
+							<img src="images/details/rel_left_02.jpg">
+						</div>
+						<div>
+							<div>
+								<a href="#" title="锂基脂 ZL-2">锂基脂 ZL-2</a>
+							</div>
+							<div class="product_related_price">
+								<span>￥256.00</span>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<a href="#" title="发动机专用机油"></a>
+							<img src="images/details/rel_left_03.jpg">
+						</div>
+						<div>
+							<div>
+								<a href="发动机专用机油">发动机专用机油</a>
+							</div>
+							<div class="product_related_price">
+								<span>￥328.00</span>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<a href="#" title="尿素"></a>
+							<img src="images/details/rel_left_04.jpg">	
+						</div>
+						<div>
+							<div>
+								<a href="国四底盘 专用尿素">国四底盘 专用尿素</a>
+							</div>
+							<div class="product_related_price">
+								<span>￥42.00</span>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<a href="#" title="锂基脂 00#">
+								<img src="images/details/rel_left_05.jpg">
+							</a>
+						</div>
+						<div>
+							<div>
+								<a href="锂基脂 00#">锂基脂</a>
+							</div>
+							<div class="product_related_price">
+								<span>￥215.00</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<img src="images/common/arrow_up.jpg" style="width: 40px; height: 20px;">
+					<img src="images/common/arrow_down.jpg" style="width: 40px; height: 20px;">
+				</div>
+			</div>
+			<div class="product_tab_bar_box l">
+				<ul class="product_tab_bar">
+					<li class="product_tab_selected" data-index="0">
+						产品详情
+					</li>
+					<li data-index="1">
+						规格参数
+					</li>
+				</ul>
+				<ul class="product_tab_contents">
+					<li class="product_tab_content_show" id="detailContainer">
+						<div class = "product_tab_content product_details_tab">
+							<div class="product_details_tab_top">
+								<span class="product_details_tab_title">中联重科液压油200L</span>
+								<img class="product_details_tab_top_line" src="images/common/productDetailsTabTop_line.png">
+							</div>
+							<div class="product_details_tab_content">
+								<div class="introduction">
+								<p align="left">
+									<span style="font-family:Microsoft YaHei; font-size:16px;">
+									<strong><span style="font-size:18px">特别申明:</span></strong>
+									</span>
+								</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+	</div>
+	<!--产品服务开始-->
+	<div id="product_service" class="wrapper_box clearfix">
+		<ul>
+			<li class="item l">
+				<p class="item_icon icon1 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">真实货源</p>
+					<p class="text_info">一手货源&nbsp;真实存在</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon2 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">品质保障</p>
+					<p class="text_info">垂直专业&nbsp;优选厂商</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon3 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">服务保障</p>
+					<p class="text_info">专业服务团队</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon4 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">交易透明</p>
+					<p class="text_info">买卖双方面谈价格</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!--产品服务结束-->
+	<!--底部开始-->
+	<div class="footerbox">
+		<div class="footer" style="padding:50px; padding-left:100px;">
+			<div class="content_boxs">
+				<div>
+					<h1>新手指南</h1>
+					<a href="#" target="_blank">免费注册</a>
+					<a href="#" target="_blank">个人资料及密码</a>
+					<a href="#" target="_blank">商品关注</a>
+					<a href="#" target="_blank">查询订单</a>
+					<a href="#" target="_blank">购物流程</a>
+				</div>
+				<div>
+					<h1>付款/退款</h1>
+					<a href="#" target="_blank">在线支付</a>
+					<a href="#" target="_blank">银行转账</a>
+					<a href="#" target="_blank">发票办理</a>
+				</div>
+				<div>
+					<h1>配送方式</h1>
+					<a href="#" target="_blank">快递配送</a>
+					<a href="#" target="_blank">零担物流</a>
+				</div>
+				<div>
+					<h1>售后服务</h1>
+					<a href="#" target="_blank">退货流程</a>
+					<a href="#" target="_blank">退货政策</a>
+				</div>
+				<div>
+					<h1>帮助中心</h1>
+					<a href="#" target="_blank">常见热点问题</a>
+					<a href="#" target="_blank">联系我们</a>
+					<a href="#" target="_blank">投诉与建议</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="copyright_bgcolor">
+			<div class="copyright">Copyright © 2018 XXXX数字科技有限公司 版权所有 保留一切权利 鲁ICP备XXXXXXXX号-X</div>
+		</div>
+	</div>
+	<!--底部结束-->
+</body>
+</html>

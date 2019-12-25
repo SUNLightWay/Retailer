@@ -21,7 +21,7 @@ public class ActionUserPortalController {
 	private UserService userService;
 	
 	/**
-	 * 用户登录
+	 * 用户登录 
 	 * @param account
 	 * @param password
 	 * @param session
@@ -129,6 +129,22 @@ public class ActionUserPortalController {
 			session.removeAttribute(ConstUtil.CUR_USER);
 		}
 		return result;
+	}
+	
+	/**
+	 * 登出
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/do_logout.do")
+	@ResponseBody
+	public SverResponse<String> logout(HttpSession session){
+		User user = (User)session.getAttribute(ConstUtil.CUR_USER);
+		if(user != null) {
+			session.removeAttribute(ConstUtil.CUR_USER);
+			return SverResponse.createRespBySuccess("登出成功");
+		}
+		return SverResponse.createByErrorMessage("请先登录");
 	}
 	
 }

@@ -25,6 +25,28 @@ public class ActionParamsBackController {
 	private ActionParamsService actionParamsService;
 	@Autowired
 	private UserService userService;
+	
+	/**
+	 * 查找商品类型
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/findptype.do")
+	@ResponseBody
+	public SverResponse<List<ActionParam>> findPType(HttpSession session){
+		//1.判断用户是否登录
+		User user=(User)session.getAttribute(ConstUtil.CUR_USER);
+		if(user==null) {
+			return SverResponse.createByErrorCodeMessage(ResponseCode.UNLOGIN.getCode(), "请登录后再进行操作！");
+		}
+		//2.用户是否是管理员
+		SverResponse<String> response=userService.isAdmin(user);
+		if(response.isSuccess()) {
+			//3.调用Service中的方法:新增类型
+			return actionParamsService.findAllParams();
+		}	
+		return SverResponse.createByErrorMessage("无操作权限！");
+	}
 	/**
 	 * 新增类型
 	 * @param session
@@ -113,4 +135,5 @@ public class ActionParamsBackController {
 		}	
 		return SverResponse.createByErrorMessage("无操作权限！");	
 	}
+	
 }

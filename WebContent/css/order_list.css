@@ -1,0 +1,159 @@
+.right_nav{
+	width: 900px;
+	height: 32px;
+	margin-bottom: 30px;
+	border-bottom: solid 2px #e8e8e8;
+}
+
+.right_nav li{
+	display: block;
+	padding:0 25px;
+	border-bottom: solid 2px transparent;
+	font-size: 16px;
+	color: #66656a;
+	text-align: center;
+	line-height: 32px;
+	cursor: pointer;
+	float: left;
+}
+
+.right_nav li.on{
+	color: #0285d3;
+	border-color: #0285d3;
+}
+
+.right_nav li.on:after{
+	content: "";
+	position: absolute;
+	border: 0;
+	left:50%;
+	width: 0;
+	height: 25px;
+	margin-left: -3px;
+	border-left: solid 4px transparent; 
+	border-right: solid 4px  transparent;
+	border-bottom: solid 6px #0285d3; 
+}
+
+.right_nav>div{
+	font-size: 12px;
+	color: #666;
+	line-height: 32px;
+}
+
+.user_order>div:nth-child(1){
+	height: 46px;
+	margin-bottom: 25px;
+	border:solid 1px #ddd;
+	color: #4f4f4f;
+	text-align:center;
+	line-height: 46px;
+	background-color:#f5f5f5;
+}
+
+.user_order>div:nth-child(1)>:nth-child(1){
+	float: left;
+	width: 238px;
+	text-align:left;
+	margin-left:42px;
+}
+
+.user_order>div:nth-child(1)>:nth-child(2){
+	float: left;
+	width: 100px;
+}
+
+.user_order>div:nth-child(1)>:nth-child(3){
+	float: left;
+	width: 108px;
+}
+
+.user_order>div:nth-child(1)>:nth-child(4){
+	float: left;
+	width: 106px;
+}
+
+.user_order>div:nth-child(1)>:nth-child(5){
+	float: left;
+	width: 170px;
+}
+
+.user_order>div:nth-child(1)>:nth-child(6){
+	float: left;
+	width: 106px;
+}
+
+.list_item{
+	margin-bottom: 30px;
+	border: solid 1px #ddd;
+}
+
+.list_item>div:nth-child(1){
+	border-bottom: solid 1px #ddd;
+	line-height: 40px;
+	background-color:#f1faff;
+	height: 40px;
+}
+
+.list_item>div:nth-child(1)>:nth-child(1){
+	margin:0 10px;
+	float: left;
+}
+
+.list_item>div:nth-child(1)>p{
+	margin:0 10px;
+	float: left;
+}
+
+.list_item>div:nth-child(1)>:nth-child(5){
+	margin-left:160px;
+	float: left;
+	color: #ff1a1a;
+}
+.list_item>div:nth-child(2){
+	height: 120px;
+	text-align:center;
+	line-height: 80px;
+}
+
+.list_item>div>div:nth-child(1){
+	float: left;
+	margin:0 10px;
+	width: 150px;
+}
+
+.list_item>div>div:nth-child(2){
+	float: left;
+	margin-left:120px;
+}
+.list_item>div>div:nth-child(3){
+	float: left;
+	margin-left:70px;
+}
+.list_item>div>div:nth-child(4){
+	float: left;
+	margin-left:80px;
+}
+.list_item>div>div:nth-child(5){
+	float: left;
+	margin-left:80px;
+}
+.list_item>div>div:nth-child(6){
+	float: left;
+	height: 28px;
+	margin-left:87px;
+	margin-top: -20px;
+}
+.list_item button{
+	background-color:#41b5e7;
+	color: #fff;
+	box-sizing: border-box;
+	display: inline-block;
+	border:none;
+	height: 28px;
+	line-height: 26px;
+	padding:0 9px;
+	border-radius: 3px;
+	font-size:12px;
+	cursor: pointer; 
+}

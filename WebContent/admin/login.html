@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录</title>
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet"
+          href="resources/css/amazeui.min.css" />
+
+    <style>
+
+        .header {
+            margin-top: 100px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .header p {
+            font-size: 14px;
+        }
+
+        #btn_login{
+            margin-left: 40%;
+            width: 150px;
+            font-size: 120%;
+            background-color: #0DA8E9;
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="header">
+    <div class="am-g">
+        <h1>
+            管理员登录
+        </h1>
+    </div>
+</div>
+
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <div class = "am-form login-form">
+            <!-- 文本输入框  用于输入用户名 -->
+            <div class = "form-group">
+            	<input type="text" class="form-control" name="username" id="input_username"  placeholder="请输入用户名"/>
+            </div>
+            <!-- 文本输入框  用于输入用户密码-->            
+            <div class = "form-group">
+	            <input type="password" class="form-control" name="password"  id="input_password"  placeholder="请输入密码"/>        
+            </div>
+			<span id="errMsg" style="color:red"></span>
+            <div class="col-xs-12">
+            	<button type="submit" id="btn_login" class="am-btn am-btn-primary am-btn-sm am-fl btn btn-danger btn-block btn-flat">登录</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+<script src="resources/js/require.js"  defer async="true"></script>
+<script src="resources/js/require.js" data-main="resources/js/login_main"></script>
+
+</html>

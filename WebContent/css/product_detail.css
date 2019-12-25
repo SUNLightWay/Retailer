@@ -1,0 +1,308 @@
+.product_detail{
+	color:#666666;
+}
+.product_picture_list{
+	width:370px;
+	height:437px;
+	overflow:hidden;
+}
+.product_picture_list > div:nth-child(1){
+	border:1px solid #DDD;
+	width:368px;
+	height:368px;
+	overflow:hidden
+}
+.product_picture_list > div:nth-child(2){
+	margin-top:8px;
+}
+.product_picture_list>div:nth-child(2) ul{
+	width:400px;
+}
+.product_picture_list>div:nth-child(2) ul li{
+	float:left;
+	padding-right:6px;
+}
+.product_picture_list>div:nth-child(2) ul li img{
+	width:53px;
+	height:53px;
+	border:1px solid #DDD;
+}
+.product_picture_list>div:nth-child(2) ul li .product_picture_selected{
+	width:53px;
+	height:53px;
+	border:1px solid #41b6e7;
+}
+.product_picture_list span{
+	width:25px;
+	height:53px;
+	border:1px solid #DDD;
+	float:left;
+}
+.product_picture_list > div:nth-child(2) > div{
+	position:relative;
+	width:300px;
+	overflow:hidden;
+	height:55px;
+}
+.product_picture_list > div:nth-child(2) ul{
+	position:absolute;
+	left:0;
+}
+.product_picture_table_,.product_picture_listleft,.product_related_mor{
+	cursor:pointer;
+}
+
+/*产品标题*/
+.product_info_list {
+	padding: 0px 28px 0px;
+	overflow: hidden; 
+	border-left: 1px solid #FFF;
+	border-right:1px solid #DDD;
+}
+.product_info_list > div:nth-child(1) {
+	padding: 0px;
+	overflow: hidden;
+}
+.product_info_list > div:nth-child(1) h3{
+	font-size: 18px;
+	color: #4c4c4c;
+	line-height: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+.product_info_list > div:nth-child(1) > div{
+	width: 80px; 
+	height: 30px; 
+	margin-left: 10px; 
+	background-color: #41b6e7;
+	text-align: center;
+}
+.product_info_list span{
+	line-height: 25px;
+}
+/*产品价格*/
+.product_price_info {
+	background-color: #eeeeee; 
+	height: 70px;
+	width: 490px; 
+	margin-top: 15px;
+	padding-left: 10px;
+	padding-top: 5px;
+	color: #4c4c4c;
+	line-height: 32px;
+}
+.product_price_info>span:nth-of-type(2) {
+	font-size: 18px;
+	color: #f76707; 
+	font-weight: bold;
+}
+/*产品发货*/
+.product_delivery{
+	padding-left: 10px;
+	padding-top: 5px;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+.product_delivery span{
+	line-height: 35px;
+}
+/*产品购买相关*/
+.product_select{
+	padding-left: 10px;
+	width: 490px;
+	line-height: 30px;
+	border-top: 1px dotted #c9c9c9;
+	border-bottom: 1px dotted #c9c9c9;
+	overflow: hidden;
+}
+.product_select > div:nth-of-type(1){
+	overflow: hidden;
+	margin-top: 15px;
+   *clear: both;
+}
+.product_select > div:nth-of-type(1){
+	overflow: hidden;
+	margin-top: 15px;
+   *clear: both;
+}
+.product_select>div:nth-of-type(1){
+	overflow: hidden;
+	margin-top: 15px;
+}
+.product_select span{
+	width: 60px;
+}
+.product_select > div > div > input {
+	display: block; 
+	width: 45px;
+	height: 22px; 
+	line-height:22px;
+	border-left: 0; 
+	border-right: 0; 
+	border-top: solid 1px #d0d0d0;
+}
+.product_select > div > div > a {
+	height: 22px;
+	width: 22px;
+}
+
+.product_minus_1{
+	background:url(../images/common/product_minus_1.jpg) no-repeat;
+}
+.product_minus_2{
+	background:url(../images/common/product_minus_2.jpg) no-repeat;
+}
+.product_plus_1{
+	background:url(../images/common/product_plus_1.jpg) no-repeat;
+}
+.product_plus_2{
+	background:url(../images/common/product_plus_2.jpg) no-repeat;
+}
+.product_select > div:nth-of-type(2){ 
+	overflow: hidden; 
+	margin-top: 15px ;
+	margin-bottom: 15px;
+}
+.product_select>div:nth-of-type(2) a{
+	color: #666;
+	margin: 5px 5px;
+	padding: 4px 15px;
+	border: 2px solid #41b6e7;
+	position: relative;
+}
+.product_select img {
+	position: absolute;
+	top: 328px; 
+	left: 562px;
+}
+.product_buy{
+	margin-top: 15px;
+	overflow: hidden;
+}
+.product_buy div {
+	cursor:pointer;
+	width:135px; 
+	height: 38px; 
+	text-align: center;
+	border: 1px solid #f76707;
+	vertical-align: middle;
+	line-height: 38px;
+}
+.product_buy > div:nth-child(1) {
+	float:left; 
+	background-color: #fdead1; 
+	color: #df6e23;
+	margin-right: 20px;
+}
+.product_buy > div:nth-child(2) {
+	float:left; 
+	background-color: #f27300; 
+	color: #FFF;
+	margin-right: 20px;
+}
+.pledges {
+	overflow:hidden; 
+	margin-top:20px;
+	padding-bottom: 20px;
+}
+/*推荐套装*/
+.recommended_package {
+	height: auto;
+	width: 930px;
+}
+.recommended_package h3 {
+	width: 930px;
+	padding-bottom: 10px; 
+	font-size: 16px;
+	color: #333;
+	 margin:13px 0 0;
+}
+.recommended_package > div {
+	width: 925px;
+	height: auto;
+	border: 1px solid #cccccc;
+	border-top: 2px solid #cccccc;
+}
+.recommended_package > div > div:nth-child(1),.recommended_package>div>div:nth-child(3){
+	margin: 25px 15px;
+}
+.recommended_package img {
+	width: 70px; 
+	height: 70px;
+	margin: 0px auto;
+}
+.recommended_package > div > div:nth-child(1) > div:nth-child(1),.recommended_package > div > div:nth-child(3) > div:nth-child(1) {
+	text-align: center ; 
+}
+.recommended_package > div > div:nth-child(2) {
+	background: url(../images/details/plus.png) no-repeat;
+	height: 70px;
+	width: 70px;
+	margin-top:30px;
+}
+.recommended_package label{ 
+	line-height: 20px; 
+	color: #ff7a03;
+	font-weight: bold;
+}
+.recommended_package_price_info {
+	margin-top: 60px;
+}
+.recommended_package_price_num,.total_price {
+	font-size: 16px; 
+	color: #ff7a03;
+}
+.recommended_package_buy{ 
+	margin-top:15px;
+	text-align: center;
+}
+.recommended_package_buy_btn { 
+	width: 85px; 
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px; 
+	color: #FFF; 
+	background-color: #e36d3a;
+}
+
+/*侧边开始*/
+.product_related_box{
+	width:168px;
+	overflow: hidden;
+	text-align: center;
+	margin-top: -435px;
+	font-size: 13px;
+}
+.product_related_box img{
+	width: 90px; 
+	height: 90px;
+	margin: 0px auto;
+}
+.product_related_box > div:nth-of-type(1){
+	font-weight: bold;
+	font-size: 16px;
+}
+.product_related_box > div:nth-of-type(2){
+	position: relative;
+	width: 168px;
+	height: 610px;
+	overflow: hidden;
+}
+.product_related_box > div:nth-of-type(2) > div{
+	padding-top: 10px;
+}
+.product_related_box > div:nth-of-type(2)>img{
+	height: 100px;
+	width: 100px;
+}
+.product_related_price{
+	font-weight: bold;
+	color: #f76707;
+}
+.product_related_box > div:nth-of-type(3){
+	margin-top: 20px;
+	padding-left: 5px;
+}
+
+
+

@@ -49,16 +49,14 @@ define(['common','handlebars-v4.0.11','simditor'],function(common,Handlebars,Sim
 	//保存商品信息
 	function btnSave(){
 		$("#btn-save").click(function(){
-			var goodsId = $("#goodsId").val();
+			var goodsId = common.getParam('productId');
+			console.log("productId" + goodsId);
 			var goodsName = $("#goodsName").val();
 			var productType = $("#productType").val();
 			var partsType = $("#partsType").val();
 			var goodsPrice = $("#goodsPrice").val();
 			var goodsStock = $("#goodsStock").val();
 			var images = $("#images").val();
-			if(images.length>initImages.length){ //若长度相同，说明没有上传图片
-				images = images.substring(initImages.length+1);
-			}
 			var detail = editor.getValue();
 			$.ajax({
 				"xhrFields":{withCredentials:true},
@@ -152,7 +150,7 @@ define(['common','handlebars-v4.0.11','simditor'],function(common,Handlebars,Sim
 //初始化编辑器
 function initEditor(){
     var $preview, mobileToolbar, toolbar;
-    //Simditor.locale = 'zh-CN';
+    Simditor.locale = 'zh-CN';
     toolbar = [ 'title', 'bold', 'italic', 'underline', 'strikethrough',    
         'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|',    
         'link', 'image', 'hr' ];   

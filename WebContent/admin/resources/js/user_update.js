@@ -41,7 +41,13 @@ define(['common'], function (common) {
                 var useraccount = $("#useraccount").val();
                 var username = $("#username").val();
                 var sex = $('input:radio[name="sex"]:checked').val();
+                if (sex=="1"){
+                	sex = "男";
+                }else if(sex == "0"){
+                	sex = "女";
+                }
                 var userage = $("#userage").val();
+                alert(userage);
                 if (userage == 0) {
                     return alert("请填写年龄！");
                 }

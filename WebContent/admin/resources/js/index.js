@@ -139,15 +139,16 @@ define(['common'],function(common){
 
 	//更改商品状态
 	function changeStatus(pid,newStatus){
+		console.log(pid);
 		$.ajax({
 			"xhrFields":{withCredentials:true},
 			"crossDomain":true,
 			"url":baseUrl+"mgr/product/setstatus.do",
-			data:{"productId":pid,"status":newStatus,"hot":-1},
+			data:{"id":pid,"status":newStatus,"hot":-1},
 			success:function(rs){
 				if(rs.status==0){
 					//成功重新加载数据
-					var table = $("#product-table").DataTable();
+					var table = $("#table").DataTable();
 					table.ajax.reload();
 				}else{
 					//失败返回错误信息
@@ -168,11 +169,11 @@ define(['common'],function(common){
 			"xhrFields":{withCredentials:true},
 			"crossDomain":true,
 			"url":baseUrl+"mgr/product/setstatus.do",
-			data:{"productId":pid,"status":-1,"hot":newStatus},
+			data:{"id":pid,"status":-1,"hot":newStatus},
 			success:function(rs){
 				if(rs.status==0){
 					//成功重新加载数据
-					var table = $("#product-table").DataTable();
+					var table = $("#table").DataTable();
 					table.ajax.reload();
 				}else{
 					//失败返回错误信息

@@ -138,7 +138,7 @@ public class ActionProductDaoImpl implements ActionProductDao {
 			params.add(product.getProductId());
 		}
 		if(!StringUtils.isEmpty(product.getPartsId())) {
-			sql += ", prats_id = ?";
+			sql += ", parts_id = ?";
 			params.add(product.getPartsId());
 		}
 		if(!StringUtils.isEmpty(product.getPrice())) {

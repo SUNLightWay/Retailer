@@ -229,7 +229,6 @@ define(['jquery','common'],function(jquery,common){
 	function registBtn(){
 		//创建注册单击事件
 		$("#register_btn").click(function(){
-			alert("下面检查注册信息");
 			//提交注册前检查校验结果
 			if(!isUserNameValidate){
 				return checkUserName("username");
@@ -256,7 +255,6 @@ define(['jquery','common'],function(jquery,common){
 			if(!isAnswerValidate){
 				return checkAnswer("answer");
 			}
-			alert("下面提交表单");
 			//提交表单
 			var formData={	account:$("#username").val(),
 							password:$("#password").val(),
@@ -266,17 +264,16 @@ define(['jquery','common'],function(jquery,common){
 							asw:$("#answer").val()
 						};
 			//请求服务器
-			alert("hello"+formData.asw);
 			$.ajax({
 				url:baseUrl+"user/do_register.do",
 				type:"post",
 				data:formData,
 				success:function(rs){
-					alert("下面判断注册是否成功");
+
 					//判断方法是否成功
-					alert(rs.status);
 					if(rs.status==0){
 						//注册成功跳转登录页面
+						alert("注册成功");
 						$(window).attr("location","login.html");
 					}else{
 						//失败弹出提示

@@ -103,16 +103,10 @@ define(['jquery','common','handlebar'],function(jquery,common,Handlebars){
 				
 					for(var i=0;i<rs.data.data.length;i++){
 						rs.data.data[i].iconUrl = baseUrl+rs.data.data[i].iconUrl;
-//						alert(rs.data.data[i].price);
-//						alert(rs.data.data[i].name);
 					}
-					alert("准备获取");
 					//获取数据插入页面
 					var tpl = $("#products_list_tpl").html();
-					alert(tpl);
 					var func=Handlebars.compile(tpl);
-					alert(func);
-					alert(rs.data.data[0].name);
 					$("#probox").html(func(rs.data.data));
 					//处理分页显示
 				

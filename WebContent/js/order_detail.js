@@ -4,9 +4,6 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 	//2.获取订单详情
 	function getDetail(){
 		$.ajax({
-			//后台管理接口-产品类型模块
-			//商品详情接口
-			//post
 			url:baseUrl+"order/getdetail.do",
 			xhrFields:{withCredentials:true},
 			crossDomain:true,
@@ -34,10 +31,8 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 					var tpl = $("#product-item-tpl").html();
 					var func = Handlebars.compile(tpl);
 					var result = func(rs.data.orderItems);
-					//插入页面应在位置
 					$("#item-container").html(result);
 					//支付 取消 确认收货按钮显示判断
-					//status不是未付款状态，不显示支付和取消按钮
 					if(rs.data.status!=1){
 						$("#order_pay").remove();
 						$("#order_cancel").remove();
@@ -54,7 +49,6 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 		//取消按钮挂单击事件
 		$("#order_cancel").click(function(){
 			$.ajax({
-				//订单取消接口
 				url:baseUrl+"order/cancelorder.do",
 				xhrFields:{withCredentials:true},
 				crossDomain:true,
@@ -69,6 +63,15 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 					}
 				}
 			});
+			
+		});
+	}
+	
+	function orderCancel(){
+		//取消按钮挂单击事件
+		$("#order_pay").click(function(){
+		$(window).attr("location","payment.html");
+		
 			
 		});
 	}

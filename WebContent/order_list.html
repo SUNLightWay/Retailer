@@ -7,7 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/order_list.css">
 	<link rel="stylesheet" type="text/css" href="css/order_confirm.css">
-	<script src ="js/require.js" async = "true" data-main = "js/order_list_main"></script>
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+	<script type="text/javascript" src="js/order_confirm.js"></script>
+	<script type="text/javascript" src="js/details.js"></script>
+	<script type="text/javascript" src ="js/require.js" async = "true" data-main = "js/order_list_main.js"></script>
 </head>
 <body>
 	<!--头部导航开始-->
@@ -15,7 +20,7 @@
 		<div class="header_inbox">
 			<div class="loginbox">
 	            <p> 欢迎访问艾氪森配件商城</p>
-	            <a href="index.hmtl" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 访问官网 ]</a>
+	            <a href="index.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 访问官网 ]</a>
 	            <span id="register-info">
 		            <a href="login.html" class="login">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;</a>
 		            <img src="images/common/header_line.jpg">
@@ -87,13 +92,13 @@
 		            <div class="dashed">我的交易</div>
 		        </div>
 		        <div class="item"><a href="#">我的订单</a></div>
-		        <div class="item active"><a href="ShoppingCart.html">我的购物车</a></div>
+		        <div class="item active"><a href="#">我的购物车</a></div>
 		        <div class="item"><a href="#">我的积分购物车</a></div>
 		        <div class="item"><a href="#">我的积分消费</a></div>
 		        <div class="item"><a href="#">我的关注</a></div>
 		        <div class="item"><a href="#">我的购买咨询</a></div>
 		        <div class="item"><a href="#">我的优惠券</a></div>
-		        <div class="item"><a href="address_management.html">收货地址管理</a></div>
+		        <div class="item"><a href="#">收货地址管理</a></div>
 		        <div class="item"><a href="#">我的推荐</a></div>
 		    </div>
 		    <!--我的账户-->
@@ -101,8 +106,8 @@
 		        <div class="title">
 		            <div class="dashed">我的账户</div>
 		        </div>
-		        <div class="item"><a href="information_modification.html">个人资料</a></div>
-		        <div class="item"><a href="password_modification.html">修改密码</a></div>
+		        <div class="item"><a href="#">个人资料</a></div>
+		        <div class="item"><a href="#">修改密码</a></div>
 		    </div>
 		</div>
 		<!--我的左侧菜单结束-->
@@ -128,7 +133,7 @@
 				</div>
 				<div class = "order_list">
 				    <ul id = "order-list-container">
-				       
+						
 				    </ul>
 				</div>
 			</div>
@@ -145,42 +150,42 @@
 		</div>
 		<!-- 右侧结束！ -->
 	</div>
-	<!--产品服务开始-->
+<!--产品服务开始-->
 	<div id="product_service" class="wrapper_box clearfix">
-        <ul>
-            <li class="item l">
-                <p class="item_icon icon1 l"></p>
-                <div class="item_text l">
-                    <p class="text_tit">真实货源</p>
-                    <p class="text_info">一手货源&nbsp;真实存在</p>
-                </div>
-            </li>
-            <li class="item l">
-                <p class="item_icon icon2 l"></p>
-                <div class="item_text l">
-                    <p class="text_tit">品质保障</p>
-                    <p class="text_info">垂直专业&nbsp;优选厂商</p>
-                </div>
-            </li>
-            <li class="item l">
-                <p class="item_icon icon3 l"></p>
-                <div class="item_text l">
-                    <p class="text_tit">服务保障</p>
-                    <p class="text_info">专业服务团队</p>
-                </div>
-            </li>
-            <li class="item l">
-                <p class="item_icon icon4 l"></p>
-                <div class="item_text l">
-                    <p class="text_tit">交易透明</p>
-                    <p class="text_info">买卖双方面谈价格</p>
-                </div>
-            </li>
-        </ul>
+		<ul>
+			<li class="item l">
+				<p class="item_icon icon1 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">真实货源</p>
+					<p class="text_info">一手货源&nbsp;真实存在</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon2 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">品质保障</p>
+					<p class="text_info">垂直专业&nbsp;优选厂商</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon3 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">服务保障</p>
+					<p class="text_info">专业服务团队</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon4 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">交易透明</p>
+					<p class="text_info">买卖双方面谈价格</p>
+				</div>
+			</li>
+		</ul>
 	</div>
 	<!--产品服务结束-->
 	
-    <!--底部开始-->
+<!--底部开始-->
 	<div class="footerbox">
         <div class="footer">
 	        <div class="content_box clearfix">
@@ -229,39 +234,48 @@
        <div class = "order_mess clearfix">
           <a class = "order_detail order_detail_6 r confirm_receipt" data-orderno = {{orderNo}} data-status = {{status}} style ="display:none;">确认收货</a>
           <a href = "order_detail.html?orderNo={{orderNo}}" target = "_blank" class = "order_number l" style = "margin:0 10px;">订单编号：{{orderNo}}</a>
-          <p class = "order_date l">下单时间：{{created}}</p>
+          <p class = "order_date l" style="
+    width: 210px;
+">下单时间：{{created}}</p>
           <p class = "order_data l">收件人：{{deliveryName}} </p>
           <p class = "order_date r">订单状态：{{statusDesc}}</p> 
-          <p class = "order_date order_amount r">订单总额：{{amount}}</p>  
+          <p class = "order_date order_amount r" style="
+    margin-left: 50px;
+">订单总额：{{amount}}</p>  
           <a class = "order_detail order_detail_6 r pay_order{{status}}" id = "pay_order" href = "order_detail.html?orderNo={{orderNo}}" data-status={{status}}>立即付款</a>
       </div>
       <div class = "clearfix">
          {{#each orderItems}}
-              <div class = "order_tit oh clearfix">
+              <div class = "order_tit oh clearfix" style="margin:0 10px;float:left;">
                      <!--订单商品名-->
                  <div class = "item_01 l" >
                      <div class = "goods_info">              
                         <div class = "goods_info_info l">
                             <h3 class = "goods_name"><a href=" product_detail.html?pid={{goodsId}}"
-                                target ="_blank" >{{goodsName}}</a></h3>
+                                target ="_blank" >{{goodsName}}</a>
+							</h3>
                        </div>
                     </div>
                  </div>
                  <!--订单商品单价-->
                  <div class = "item_02 l" style = "margin-left:10px;">
-                     <p class = "center_item goods_price">￥{{curPrice}}</p>
-
+                     <p class = "center_item goods_price" style="
+    margin-left: 210px;
+">￥{{curPrice}}</p>
                  </div>
                   <!--订单商品数量-->
                  <div class = "item_03 l">
-                     <p class = "center_item goods_num">{{quantity}}</p>
-
+                     <p class = "center_item goods_num" style="
+    margin-left: 50px;
+">{{quantity}}</p>
                  </div>
                    <!--订单商品总价-->
                  <div class = "item_04 l">
-                     <div class = "center_item">
-
-                                                                   ￥{{totalPrice}}
+                     <div class = "center_item" style="
+    margin-left: 80px;
+    margin-right: 100px;
+">
+                                           ￥{{totalPrice}}
                       </div>
                  </div>
                  <!--订单商品状态-->

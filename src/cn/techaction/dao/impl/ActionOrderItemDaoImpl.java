@@ -24,13 +24,14 @@ public class ActionOrderItemDaoImpl implements ActionOrderItemDao {
 	@Override
 	public List<ActionOrderItem> getItemsByOrderNo(Long orderNo) {
 		// TODO Auto-generated method stub
-		String sql="select * from action_order_items where order_no=?";
+		String sql="select "+alias+" from action_order_items where order_no=?";
 		try {
 			return queryRunner.query(sql, new BeanListHandler<ActionOrderItem>(ActionOrderItem.class),orderNo);
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
+
 	}
 	
 	

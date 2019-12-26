@@ -1,80 +1,71 @@
-@charset "utf-8";
+@charset "UTF-8";
 .user_order_detail{
- margin:40px 15px 0;
-  border:1px solid #aec7e5;
-   position:relative;
-    padding:20px; 
-    overflow: hidden;
+	margin:40px 15px 0;
+	border:1px solid #aec7e5;
+	position:relative;
+	padding:20px;
+	overflow:hidden;
 }
-.user_order_detail dt {
-	font-size: 13px;
-	 font-weight: bold;
-	}
+.user_order_detail dt{
+	font-size:15px;
+	font-weight:blod;
+	
+}
 .user_order_detail dl{
- padding-bottom:20px;
-  border-bottom: solid 1px #ddd;
+	padding-bottom:20px;
+	border-bottom:solid 1px #ddd;
 }
-.user_order_detail dd {
-	line-height: 30px;
+.user_order_detail dd{
+	line-height:30px;
 }
-.user_order_detail>div>dl:nth-child(2) {
-	margin-top: 20px;
+.user_order_detail>div>dl:nth-child(2){
+	margin-top:20px;
 }
-.user_order_detail>div>dl:nth-child(3) {
-	margin-top: 22px;
-	 border-bottom: none;
-	}
-.user_order_detail>div>dl:nth-child(3)>dd{ 
-	float: left;
-	 width: 50%;
-	}
-.table_bordered {
-	border: 1px solid #dddddd;
-	width: 100%;
-	 border-collapse: collapse;
-	}
-.table_bordered thead {
-	color: #404040; 
-	background:
-	 #f1f1f1;
-	}
-.table_bordered thead>tr {
-	height : 60px;
- font-size: 13px;
+.user_order_detail>div>dl:nth-child(3){
+	margin-top:22px;
+	border-bottom:none;
 }
-.table_bordered thead>tr {
-	border:1px solid #ddd
+.user_order_detail>div>dl:nth-child(3)>dd{
+	float:left;
+	width:50%;
+}
+.table_bordered{
+	border:1px solid #dddddd;
+	width:100%;
+	border-collapse:collapse;
+}
+.table_bordered thead{
+	color:#404040;
+	background:#f1f1f1;
+}
+.table_bordered thead>tr{
+	height:60px;
+	font-size:13px;
+	
+}
+.table_borderedd thead>tr{
+	border:1px solid #ddd;
 }
 .table_bordered tbody td{
-	text-align: center;
-	 border:1px solid #ddd;
-  height:80px;
+	text-align:center;
+	border:1px solid #ddd;
+	height:80px;
 }
-.btn1{
-	background-color:#41b5e7;
-	color: #fff;
-	box-sizing: border-box;
-	display: inline-block;
-	border:none;
-	height: 30px;
-	line-height: 26px;
-	padding:0 30px;
-	border-radius: 3px;
-	font-size:14px;
-	cursor: pointer; 
+.btn{
+	width:80px;
+	background:#19CBF8;
+	height:32px;
+	color:#FFF;	
+	padding-left:20px;
+	letter-spacing:15px;
+	margin-bottom:15px;
+	font-size:15px;
+	padding-top:8px;
+	
+}
+.btn_box>a:nth-child(2){
+	margin-left:15px;
 }
 
-.btn2{
-	background-color:#41b5e7;
-	color: #fff;
-	box-sizing: border-box;
-	display: inline-block;
-	border:none;
-	height: 30px;
-	line-height: 26px;
-	padding:0 30px;
-	border-radius: 3px;
-	margin-left: 20px;
-	font-size:14px;
-	cursor: pointer; 
-}
+
+

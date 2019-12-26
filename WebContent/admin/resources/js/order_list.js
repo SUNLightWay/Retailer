@@ -1,4 +1,4 @@
- define(['common'],function (common) {
+define(['common'],function (common) {
     //1.订单表格初始化
     function initialization() {
         //找到位置引用datatable
@@ -13,7 +13,7 @@
             "ajax": {
                 "xhrFields": {withCredentials: true},
                 "crossDomain": true,
-                "url": common.baseUrl+"mgr/order/findorders_nopages.do",
+                "url": baseUrl+"mgr/order/findorders_nopages.do",
             },
             "columns": [
                 {"data": "orderNo"},
@@ -69,7 +69,7 @@
                 //清空数据
                 table.fnClearTable();
                 //重新加载数据
-                table.fnReloadAjax(common.baseUrl + "mgr/order/findorders_nopages.do?orderNo=" + $("#orderNo").val());                
+                table.fnReloadAjax(baseUrl + "mgr/order/findorders_nopages.do?orderNo=" + $("#orderNo").val());                
             }
         );
     }

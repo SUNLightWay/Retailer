@@ -109,6 +109,7 @@ public class UserServiceImpl implements UserService {
 		user.setEmail(userVo.getEmail());
 		user.setName(userVo.getName());
 		user.setPhone(userVo.getPhone());
+		user.setAge(userVo.getAge());
 		if(userVo.getSex().equals("ÄÐ")) {
 			user.setSex(1);
 		}else {

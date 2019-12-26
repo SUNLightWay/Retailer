@@ -4,10 +4,8 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 		getCartInfo();
 		//2.为购物车中每个商品绑定删除事件
 		$(".delete").live("click",function(){
-			//获取点击的对应商品信息的id
 			var productId = $(this).attr("data-product-id");
 			$.ajax({
-				//发送删除商品信息的接口路径
 				url:baseUrl+"cart/deletecarts.do",
 				data:{"productId":productId},
 				xhrFields:{withCredentials:true},
@@ -31,7 +29,7 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 						$("#cart-empty").css("display","block");
 						$("#cart-container").css("display","none");
 					}else{
-						console.log(rs.msg);
+						alert(rs.msg);
 					}
 				}
 			});
@@ -44,7 +42,7 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 			quantity = parseInt(quantity)-1;
 			if(quantity<=0){
 				$(this).next().val(1);
-				console.log("商品数量不能小于1！");
+				alert("商品数量不能小于1！");
 				return;
 			}
 			//更新数据
@@ -52,6 +50,7 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 			//更新购物车信息
 			updateCartInfo(productId,quantity);
 			getCartInfo();
+			//$(window).attr("location","ShoppingCart.html");
 		});
 		
 		//5.更新购物车数量 ，增数量
@@ -62,7 +61,7 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 			quantity = parseInt(quantity)+1;
 			if(quantity>stock){
 				$(this).prev().val(stock);
-				console.log("商品数量不能大于库存量！");
+				alert("商品数量不能大于库存量！");
 				return;
 			}
 			//更新数据
@@ -70,22 +69,23 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 			//更新购物车信息
 			updateCartInfo(productId,quantity);
 			getCartInfo();
+			//$(window).attr("location","ShoppingCart.html");
 		});
 		
 		//6.确认订单
 		$("#submit").click(function(){
 			if($("#amount").text()=="￥0"){
-				console.log("订单商品不能为空");
+				alert("订单商品不能为空");
 				return;
 			}
-			$(window).attr("location","order_confirm.html");
+			$(window).attr("location","submit_order.html");
 		});
 		
 		//全选
 		$("#selectAll").click(function(){
 			//判断全选是否选中
-			if($(this).prop("checked")){
-				$(".all_checkbox").prop("checked",true);
+			if($(this).attr("checked")){
+				$(".all_checkbox").attr("checked",true);
 				//更新购物车信息
 				$(".all_checkbox").each(function(){
 					var productId =$(this).attr("data-product-id");
@@ -103,6 +103,7 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 			}
 			//获取购物车信息
 			getCartInfo();
+			
 		});
 		
 		//反选
@@ -119,6 +120,7 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 			quantity = $("#quantity"+productId).val();
 			updateCartInfo(productId,quantity,checked);
 			getCartInfo();
+			//$(window).attr("location","ShoppingCart.html");
 		});
 		//单击搜索
 	    $("#searchBtn").click(function(){
@@ -144,16 +146,13 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 	}
 	//读取购物车信息
 	function getCartInfo(){
-		console.log("进行购物车信息读取");
 		$.ajax({
 			url:baseUrl+"cart/findallcarts.do",
 			xhrFields:{withCredentials:true},
 			crossDomain:true,
 			async:false,
 			success:function(rs){
-				console.log(rs.data.lists);
 				//数据返回成功
-				//更新页面
 				updatePageInfo(rs);
 			}
 		});
@@ -162,36 +161,24 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 	//根据返回数据更新页面信息
 	function updatePageInfo(rs){
 		//判断用户是否登录
-		console.log("登陆");
 		if(rs.status==0){
-			//用户已经登录
+
 			//判断购物车是否存在商品
-			console.log("测试是否有商品");
 			if(rs.data.lists.length == 0){
-				console.log("没有商品");
 				$("#cart-empty").css("display","block");
 				$("#cart-container").css("display","none");
 			}else{
-				console.log("有商品");
 				$("#cart-empty").css("display","none");
 				$("#cart-container").css("display","block");
 				//更新购物车列表
-				console.log("清空列表");
 				$("#cart-item-container").html();
-				//商品模板
 				var tpl =$("#cart-item-tpl").html();
-				//预编译模板
 				var func = Handlebars.compile(tpl);
-				//保存结果
 				var result = func(rs.data.lists);
-				//结果添加到页面对应位置
-				console.log("handlebar加载到对应位置");
 				$("#cart-item-container").html(result);
-				console.log("加载完成");
 				//更新购物车总价格
 				$("#amount").html("￥"+rs.data.totalPrice);
 				//更新复选框状态
-				//遍历每一条商品
 				for(var i=0;i<rs.data.lists.length;i++){
 					if(rs.data.lists[i].checked == 1){
 						$(".pro00>input").get(i).checked =true;
@@ -201,14 +188,13 @@ define(['jquery','handlebar','common'],function(jquery,Handlebars,common){
 				checkList();
 			}
 		}else{
-			//未登录直接跳转登录页面login.html
+			//未登录直接跳转登录页面
 			$(window).attr("location","login.html");
 		}
 	}
 	
 	//反选方法
 	function checkList(){
-		//找到所有的子集复选框
 		var one = $(".all_checkbox");
 		//记录有多少个子复选框被选中
 		var number =0;

@@ -29,7 +29,7 @@ define(['common'],function(common){
 				checkPwd();
 			}
 			//成功进入接口登录
-			alert("下面进入ajax");
+			console.log("下面进入ajax");
 			$.ajax({
 				url:baseUrl+"user/do_login.do",
 				type:"post",
@@ -39,11 +39,10 @@ define(['common'],function(common){
 				success:function(data){
 					//判断是否登陆成功
 					if(data.status==0){
-						alert("登陆成功，继续判断");
 						//成功判断是否是管理员
 						if(data.data.role ==2){
-							$(window).attr("location","index.html");
-							//$(window).attr("location","../admin/index.html");
+							//$(window).attr("location","index.html");
+							$(window).attr("location","http://localhost:8080/mall/admin/starter.html");
 						}else{
 							$(window).attr("location","index.html");
 						}

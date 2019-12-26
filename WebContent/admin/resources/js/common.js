@@ -36,8 +36,31 @@ define(function(){
 		});
 	}
 	
+	function loginOut(){
+		//给退出按钮挂上单击事件
+		$("#logout").click(function(){
+			//向服务器请求数据
+			$.ajax({
+				url:baseUrl+"user/do_logout.do",
+				xhrFields:{withCredentials:true},
+				crossDomain:true,
+				success:function(rs){
+					 if(rs.status==0){
+						//显示登录时span标签
+						$("#register_info").css({display:"block"});
+						//隐藏登陆后span标签
+						$("#login_info").css({display:"none"});
+						//清空购物车数量
+						$("#cartQuantity").html("[0]");
+					 }
+				}
+			});
+		});
+	}
+	
 	return {
 		getParam:getParam,
-		userCalibration:userCalibration
+		userCalibration:userCalibration,
+		loginOut:loginOut
 	};
 });

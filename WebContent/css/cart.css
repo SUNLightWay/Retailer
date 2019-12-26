@@ -21,6 +21,10 @@
     display: block;
     border: 1px solid #e0e0e0;
 }
+.shop_car_probox1{
+    height: 78px;
+    display: block;
+}
 .shop_car_probox>div{float: left;
     line-height: 78px;
     text-align: center;
@@ -49,7 +53,7 @@
     height: 25px;
     width:22px;
 }
-.no_minus_btn{
+.minus_btn{
     background: url(../images/common/no-minus_btn.png)no-repeat;
 }
 .plus_btn{

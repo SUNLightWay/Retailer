@@ -37,7 +37,7 @@ public class ActionOrderDaoImpl implements ActionOrderDao {
 	@Override
 	public List<ActionOrder> searchOrders(Long orderNo) {
 		// TODO Auto-generated method stub
-		String sql="select * from action_orders where 1=1 ";
+		String sql="select id,order_no as orderNo,uid,addr_id as addrId,amount,type,freight,status,payment_time,delivery_time,finish_time,close_time,updated,created from action_orders where 1=1";
 		try {
 			if(orderNo!=null) {
 				sql+=" and order_no=? order by created";
@@ -52,7 +52,7 @@ public class ActionOrderDaoImpl implements ActionOrderDao {
 	@Override
 	public ActionOrder findOrderDetailByNo(Long orderNo) {
 		// TODO Auto-generated method stub
-		String sql="select * from action_orders where order_no=?";
+		String sql="select id,order_no as orderNo,uid,addr_id as addrId,amount,type,freight,status,payment_time,delivery_time,finish_time,close_time,updated,created from action_orders where order_no=?";
 		try {
 			return queryRunner.query(sql, new BeanHandler<ActionOrder>(ActionOrder.class),orderNo);
 		}catch(SQLException e) {

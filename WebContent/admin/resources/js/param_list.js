@@ -67,7 +67,6 @@ function findChildren(row) {
     var str = '<a class="button" href="javascript:void (0);" onclick="queryDirectChild(\'' + row.id + '\')">查看子节点</a>';
     str += '<a class="button" href="javascript:void (0);" id="del_params" style="margin-left: 10px" onclick="delParams(\'' + row.id + '\')">删除</a>';
     str += '<a class="button" href="javascript:void (0);" id="update_params" style="margin-left: 10px" onclick="updateParams(\'' + row.id + '\',\'' + row.name + '\')">更新</a>';
-    console.log(str);	
     return str;
 }
 
@@ -113,6 +112,7 @@ function delParams(id) {
 
 //修改类型
 function updateParams(id, paramName) {
+    alert("paramName" + paramName);	
 	console.log("param_update.html?paramId=" + id + "&parentId=" + parentId + "&paramName" + paramName);
     $(window).attr("location", "param_update.html?paramId=" + id + "&parentId=" + parentId + "&paramName" + paramName);
 }

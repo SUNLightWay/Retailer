@@ -1,4 +1,3 @@
-
 define(['jquery','ChineseDistricts','distpicker','handlebar','common'], function(jquery,distpicker_data,distpicker,Handlebars,common){
 	var aId =null;//地址Id，通过他判断是修改还是添加保存
 	Handlebars.registerHelper("state",function(default_addr,id){
@@ -14,7 +13,7 @@ define(['jquery','ChineseDistricts','distpicker','handlebar','common'], function
 		$("#distpicker1").distpicker("destroy");
 		$("#distpicker1").distpicker({
 			//动态赋值
-			autoSelect:false,
+			autoSelect:false
 		});
 		//显示所有地址信息
 		showAddressInfo();
@@ -55,7 +54,7 @@ define(['jquery','ChineseDistricts','distpicker','handlebar','common'], function
 		});
 		
 		//删除事件绑定
-		$("#address_container").on("click",".addr_del",function(){
+		$("#address_container").on("click",".addr_delete",function(){
 			//提示删除信息
 			var result = confirm("要删除该地址吗？");
 			if(!result){

@@ -86,7 +86,7 @@ define(['jquery','common','handlebar'],function(jquery,common,Handlebars){
 					$(".page_num").html(rs.data.pageNum);
 					$(".page_count").html("共"+rs.data.totalPage+"页");
 					//各种状态的订单数量显示
-					 //全部订单
+					//全部订单
 					 if(status==0){
 						$("#all_num").html("("+rs.data.totalRecord+")");
 						//修改立即付款按钮（除未付款状态）
@@ -111,7 +111,6 @@ define(['jquery','common','handlebar'],function(jquery,common,Handlebars){
 			}
 		});
 	}
-	
 	return{
 		ready:ready
 	};

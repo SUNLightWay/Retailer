@@ -9,7 +9,7 @@
 	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jqueryDistpicker/distpicker.data.js"></script>
     <script type="text/javascript" src="js/jqueryDistpicker/distpicker.js"></script>
-	<script src="js/require.js" type="text/javascript" data-main="js/address_management_main" defer async="true"></script>
+	<script src="js/require.js" type="text/javascript" data-main="js/address_management_main.js" defer async="true"></script>
 </head>
 <body>
 	<header class="header_outbox">
@@ -18,15 +18,15 @@
 				<p> 欢迎访问艾氪森配件商城</p>
 				<a href="#" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 访问官网 ]</a>
 				<span id="register-info">
-					<a href="#" class="login">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;</a>
-					<img src="images/common/header_line.jpg">
-					<a href="#" class="login">&nbsp;&nbsp;免费注册&nbsp;&nbsp;&nbsp;&nbsp;</a>
-				</span>
-				<span id="login-info" style="display: none;">
-					<a href="#" id="headerUsername" class="login"></a>
-					<img src="images/common/header_line.jpg">
-					<a href="#" id="headerLogout" class="login">&nbsp;&nbsp;退出</a>
-				</span>
+		            <a href="login.html" class="login">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;</a>
+		            <img src="images/common/header_line.jpg">
+		            <a href="register.html" class="login">&nbsp;&nbsp;免费注册&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	            </span>
+	            <span id="login-info" style="display: none;">
+	            	<a href="#" id="headerUsername" class="login"></a>
+		            <img src="images/common/header_line.jpg">
+		            <a href="#" id="headerLogout" class="login">&nbsp;&nbsp;退出</a>
+	            </span>
 			</div>
 			<ul class="my_action fix">
 				<li>
@@ -140,18 +140,16 @@
 							<span style="color: red">*</span>地址信息：
 						</div>
 						<div id="distpicker1" >
-  							<select></select>
- 							<select></select>
- 						 	<select></select>
+  							<select id="eprovinceName"></select>
+ 							<select id="ecityName"></select>
+ 						 	<select id="edistrictName"></select>
 						</div>
-
-
 					</div>
 					<div>
 						<div>
-							<span style="color: red" id="detailAddr">*</span>详细地址：
+							<span style="color: red" >*</span>详细地址：
 						</div>
-						<input type="text" placeholder="请输入详细地址，如道路门牌号、小区、楼栋号、单元等信息">
+						<input type="text" id="detailAddr" placeholder="请输入详细地址，如道路门牌号、小区、楼栋号、单元等信息">
 
 					</div>
 					<div>
@@ -163,142 +161,136 @@
 					</div>
 					<div>
 						<div>
-							<span id="consignee" style="color: red">*</span>收货人姓名：
+							<span  style="color: red">*</span>收货人姓名：
 						</div>
-						<input type="text" placeholder="长度不超过20个字符" maxlength="20">
+						<input type="text" id="consignee" placeholder="长度不超过20个字符" maxlength="20">
 
 					</div>
 					<div>
 						<div>
-							<span id="phone" style="color: red">*</span>手机号码：
+							<span  style="color: red">*</span>手机号码：
 						</div>
-						<input type="text" placeholder="长度不超过20个字符" maxlength="20">
+						<input id="phone" type="text" placeholder="长度不超过20个字符" maxlength="20">
 					</div>
-					<input type="submit" id="btnSave" name="" value="保存">
+					<input id="btnSave" name="" value="保存">
 				</div>
-				<div style="padding-left: 300px;margin-top: 20px;">
+				<div class="_table" style="padding-left: 300px;margin-top: 20px;">
 					<table id=address_container>
-
+						
 					</table>
 				</div>
 			</div>
 		</div>
 	</div>
-			<script type="text/x-handlebars-template">
-			<colgroup>
-				<col style="width: 70px;">
-				<col style="width: 120px;">
-				<col style="width: 200px;">
-				<col style="width: 100px;">
-				<col style="width: 140px;">
-				<col style="width: 110px;">
-				<col style="width: 90px;">
-			</colgroup>
-			<thead>
-				<tr class="address_table">
-					<th>收货人</th>
-					<th>所在地区</th>
-					<th>详细地址</th>
-					<th>邮编</th>
-					<th>电话/手机</th>
-					<th>操作</th>
-					<th></th>
-				</tr>
-			</thead>
-			{{#each this}
-			<tr style="border:1px solid #000">
-				<td class="next__table_cell1">{{name}}</td>
-				<td class="next__table_cell1">{{province}}{{city}}{{district}}</td>
-				<td class="next__table_cell1">{{addr}}</td>
-				<td class="next__table_cell1">{{zip}}</td>
-				<td class="next__table_cell1">{{mobile}}</td>
-				<td class="next__table_cell1"><a href="" class="addr_update" addr_id={{id}}>修改</a><span>|</span><a href="" class="addr_del" addr_id={{id}}>删除</a></td>
-				<td class="next__table_cell1"><div><span class="t_default">{{state_default_addr id}}</span></div></td>
-			</tr>
-			{{/each}}
-		</script>
+	<script id="address_tpl" type="text/x-handLebars-tempLate">
+        <colgroup>
+            <col style="width: 70px;">
+            <col style="width: 120px;">
+            <col style="width: 200px;">
+            <col style="width: 100px;">
+            <col style="width: 140px;">
+            <col style="width: 110px;">
+            <col style="width: 90px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th class="next_table_cell">收货人</th>
+                <th class="next_table_cell">所在地区</th>
+                <th class="next_table_cell">详细地址</th>
+                <th class="next_table_cell">邮编</th>
+                <th class="next_table_cell">电话/手机</th>
+                <th class="next_table_cell">操作</th>
+                <th class="next_table_cell"></th>
+            </tr>
+        </thead>
+        {{#each this}}
+            <tr style="border:1px solid #000">
+                <td class="next_table_cell1">{{name}}</td>
+                <td class="next_table_cell1">{{province}}{{city}}{{district}}</td>
+                <td class="next_table_cell1">{{addr}}</td>
+                <td class="next_table_cell1">{{zip}}</td>
+                <td class="next_table_cell1">{{mobile}}</td>
+                <td class="next_table_cell1"><a href="#" class="addr_update" id="addrupdate" addr_id={{id}}>修改</a><span>|</span><a href="#" class="addr_delete"id="addrdelete" addr_id={{id}}>删除</a></td>
+                <td class="next_table_cell1>">{{state default_addr id}}</td>
+            </tr>
+        {{/each}}
+    </script>
 	<!--产品服务开始-->
 	<div id="product_service" class="wrapper_box clearfix">
 		<ul>
-			<li>
-				<p></p><!-- 放背景图 -->
-				<div>
-					<p>真实货源</p>
-
-					<p>一手货源&nbsp;真实存在</p>
+			<li class="item l">
+				<p class="item_icon icon1 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">真实货源</p>
+					<p class="text_info">一手货源&nbsp;真实存在</p>
 				</div>
 			</li>
-			<li>
-				<p></p>
-
-				<div>
-					<p>品质保障</p>
-
-					<p>垂直专业&nbsp;优选厂商</p>
+			<li class="item l">
+				<p class="item_icon icon2 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">品质保障</p>
+					<p class="text_info">垂直专业&nbsp;优选厂商</p>
 				</div>
 			</li>
-			<li>
-				<p></p>
-
-				<div>
-					<p>服务保障</p>
-
-					<p>专业服务团队</p>
+			<li class="item l">
+				<p class="item_icon icon3 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">服务保障</p>
+					<p class="text_info">专业服务团队</p>
 				</div>
 			</li>
-			<li>
-				<p></p>
-
-				<div>
-					<p>交易透明</p>
-
-					<p>买卖双方面谈价格</p>
+			<li class="item l">
+				<p class="item_icon icon4 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">交易透明</p>
+					<p class="text_info">买卖双方面谈价格</p>
 				</div>
 			</li>
 		</ul>
 	</div>
 	<!--产品服务结束-->
-	<!--底部开始-->
+<!--底部开始-->
 	<div class="footerbox">
-		<div class="footer">
-			<div class="content_boxs">
-				<div>
-					<h1>新手指南</h1>
-					<a href="#" target="_blank">免费注册</a>
-					<a href="#" target="_blank">个人资料及密码</a>
-					<a href="#" target="_blank">商品关注</a>
-					<a href="#" target="_blank">查询订单</a>
-					<a href="#" target="_blank">购物流程</a>
-				</div>
-				<div>
-					<h1>付款/退款</h1>
-					<a href="#" target="_blank">在线支付</a>
-					<a href="#" target="_blank">银行转账</a>
-					<a href="#" target="_blank">发票办理</a>
-				</div>
-				<div>
-					<h1>配送方式</h1>
-					<a href="#" target="_blank">快递配送</a>
-					<a href="#" target="_blank">零担物流</a>
-				</div>
-				<div>
-					<h1>售后服务</h1>
-					<a href="#" target="_blank">退货流程</a>
-					<a href="#" target="_blank">退货政策</a>
-				</div>
-				<div>
-					<h1>帮助中心</h1>
-					<a href="#" target="_blank">常见热点问题</a>
-					<a href="#" target="_blank">联系我们</a>
-					<a href="#" target="_blank">投诉与建议</a>
-				</div>
-			</div>
-		</div>
+        <div class="footer">
+	        <div class="content_box clearfix">
+	            <div class="footerinside">
+	                <h1>新手指南</h1>
+	                <a href="#" target="_blank">免费注册</a>
+	                <a href="#" target="_blank">个人资料及密码</a>
+	                <a href="#" target="_blank">商品关注</a>
+	                <a href="#" target="_blank">查询订单</a>
+	                <a href="#" target="_blank">购物流程</a>
+	            </div>
+	            <div class="footerinside">
+	                <h1>付款/退款</h1>
+	                <a href="#" target="_blank">在线支付</a>
+	                <a href="#" target="_blank">银行转账</a>
+	                <a href="#" target="_blank">发票办理</a>
+	            </div>
+	            <div class="footerinside">
+	                <h1>配送方式</h1>
+	                <a href="#" target="_blank">快递配送</a>
+	                <a href="#" target="_blank">零担物流</a>
+	            </div>
+	            <div class="footerinside">
+	                <h1>售后服务</h1>
+	                <a href="#" target="_blank">退货流程</a>
+	                <a href="#" target="_blank">退货政策</a>
+	            </div>
+	            <div id="currentfooterInside" class="footerinside">
+	                <h1>帮助中心</h1>
+	                <a href="#" target="_blank">常见热点问题</a>
+	                <a href="#" target="_blank">联系我们</a>
+	                <a href="#" target="_blank">投诉与建议</a>
+	            </div>
+	        </div>
+        </div>
 
-		<div class="copyright_bgcolor">
-			<div class="copyright">Copyright © 2018 XXXX数字科技有限公司 版权所有 保留一切权利 鲁ICP备XXXXXXXX号-X</div>
-		</div>
-	</div>
+        <div class="copyright_bgcolor">
+	        <div class="copyright">Copyright © 2018 艾氪森数字科技有限公司 版权所有 保留一切权利 鲁ICP备XXXXXXXX号-X</div>
+        </div>
+    </div>
 	<!--底部结束-->
+
 </body>
 </html>

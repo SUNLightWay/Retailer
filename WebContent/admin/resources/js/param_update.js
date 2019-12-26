@@ -23,6 +23,7 @@ define(['common'], function (common) {
                     var result = func(data);
                     $("#parent").html(result);
                     var num = result.indexOf('value="' + parentId + '"');
+                    console.log(num);
                     if (parentId == 0) {
                         //父级类型不显示
                         $("#parent").prepend("<option selected value='0'></option>");

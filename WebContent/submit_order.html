@@ -19,15 +19,15 @@
             <p> 欢迎访问艾氪森配件商城</p>
             <a href="#" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 访问官网 ]</a>
             <span id="register-info">
-					<a href="#" class="login">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;</a>
-					<img src="images/common/header_line.jpg">
-					<a href="#" class="login">&nbsp;&nbsp;免费注册&nbsp;&nbsp;&nbsp;&nbsp;</a>
-				</span>
-            <span id="login-info" style="display: none;">
-					<a href="#" id="headerUsername" class="login"></a>
-					<img src="images/common/header_line.jpg">
-					<a href="#" id="headerLogout" class="login">&nbsp;&nbsp;退出</a>
-				</span>
+		            <a href="login.html" class="login">&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;</a>
+		            <img src="images/common/header_line.jpg">
+		            <a href="register.html" class="login">&nbsp;&nbsp;免费注册&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	            </span>
+	            <span id="login-info" style="display: none;">
+	            	<a href="#" id="headerUsername" class="login"></a>
+		            <img src="images/common/header_line.jpg">
+		            <a href="#" id="headerLogout" class="login">&nbsp;&nbsp;退出</a>
+	            </span>
         </div>
         <ul class="my_action fix">
             <li>
@@ -148,7 +148,7 @@
             </div>
         </div>
         <!--购物车信息-->
-        <div class ="shop_car_probox order_confirm_item_container">
+        <div class ="shop_car_probox order_confirm_item_container" id="order_confirm_item_container">
             
         </div>
         <!--总计结算-->
@@ -164,48 +164,82 @@
         </div>
     </div>
 </div>
-    <!--底部开始-->
-    <div class="footerbox">
+<!--产品服务开始-->
+	<div id="product_service" class="wrapper_box clearfix">
+		<ul>
+			<li class="item l">
+				<p class="item_icon icon1 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">真实货源</p>
+					<p class="text_info">一手货源&nbsp;真实存在</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon2 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">品质保障</p>
+					<p class="text_info">垂直专业&nbsp;优选厂商</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon3 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">服务保障</p>
+					<p class="text_info">专业服务团队</p>
+				</div>
+			</li>
+			<li class="item l">
+				<p class="item_icon icon4 l"></p>
+				<div class="item_text l">
+					<p class="text_tit">交易透明</p>
+					<p class="text_info">买卖双方面谈价格</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!--产品服务结束-->
+<!--底部开始-->
+	<div class="footerbox">
         <div class="footer">
-            <div class="content_box clearfix">
-                <div class="footerinside">
-                    <h1>新手指南</h1>
-                    <a href="#" target="_blank">免费注册</a>
-                    <a href="#" target="_blank">个人资料及密码</a>
-                    <a href="#" target="_blank">商品关注</a>
-                    <a href="#" target="_blank">查询订单</a>
-                    <a href="#" target="_blank">购物流程</a>
-                </div>
-                <div class="footerinside">
-                    <h1>付款/退款</h1>
-                    <a href="#" target="_blank">在线支付</a>
-                    <a href="#" target="_blank">银行转账</a>
-                    <a href="#" target="_blank">发票办理</a>
-                </div>
-                <div class="footerinside">
-                    <h1>配送方式</h1>
-                    <a href="#" target="_blank">快递配送</a>
-                    <a href="#" target="_blank">零担物流</a>
-                </div>
-                <div class="footerinside">
-                    <h1>售后服务</h1>
-                    <a href="#" target="_blank">退货流程</a>
-                    <a href="#" target="_blank">退货政策</a>
-                </div>
-                <div id="currentfooterInside" class="footerinside">
-                    <h1>帮助中心</h1>
-                    <a href="#" target="_blank">常见热点问题</a>
-                    <a href="#" target="_blank">联系我们</a>
-                    <a href="#" target="_blank">投诉与建议</a>
-                </div>
-            </div>
+	        <div class="content_box clearfix">
+	            <div class="footerinside">
+	                <h1>新手指南</h1>
+	                <a href="#" target="_blank">免费注册</a>
+	                <a href="#" target="_blank">个人资料及密码</a>
+	                <a href="#" target="_blank">商品关注</a>
+	                <a href="#" target="_blank">查询订单</a>
+	                <a href="#" target="_blank">购物流程</a>
+	            </div>
+	            <div class="footerinside">
+	                <h1>付款/退款</h1>
+	                <a href="#" target="_blank">在线支付</a>
+	                <a href="#" target="_blank">银行转账</a>
+	                <a href="#" target="_blank">发票办理</a>
+	            </div>
+	            <div class="footerinside">
+	                <h1>配送方式</h1>
+	                <a href="#" target="_blank">快递配送</a>
+	                <a href="#" target="_blank">零担物流</a>
+	            </div>
+	            <div class="footerinside">
+	                <h1>售后服务</h1>
+	                <a href="#" target="_blank">退货流程</a>
+	                <a href="#" target="_blank">退货政策</a>
+	            </div>
+	            <div id="currentfooterInside" class="footerinside">
+	                <h1>帮助中心</h1>
+	                <a href="#" target="_blank">常见热点问题</a>
+	                <a href="#" target="_blank">联系我们</a>
+	                <a href="#" target="_blank">投诉与建议</a>
+	            </div>
+	        </div>
         </div>
 
         <div class="copyright_bgcolor">
-            <div class="copyright">Copyright © 2018 艾氪森数字科技有限公司 版权所有 保留一切权利 鲁ICP备XXXXXXXX号-X</div>
+	        <div class="copyright">Copyright © 2018 艾氪森数字科技有限公司 版权所有 保留一切权利 鲁ICP备XXXXXXXX号-X</div>
         </div>
     </div>
-    <!--底部结束-->
+	<!--底部结束-->
 </body>
 </html>
 
@@ -240,7 +274,12 @@
 <!--购物车中商品列表模板-->
 <script id="product-item-tpl" type="text/x-handlebars-template">
     {{#each this}}
-    <div class="shop_car_probox">
+    <div class="shop_car_probox" style="
+    padding-right: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    padding-left: 0px;
+">
         <div class="pro01">
             <input type="hidden" name="id" value="9206">
             <a href="product_detail.html?pid={{productId}}" target="_blank">

@@ -13,7 +13,7 @@ define(['common'],function(common){
 			"ajax":{
 				"xhrFields":{withCredentials:true},
 				"crossDomain":true,
-				"url":common.baseUrl+"mgr/user/finduserinfo.do"
+				"url":baseUrl+"mgr/user/finduserlist.do"
 			},
 			"columns":[
 				{"data":"id"},
